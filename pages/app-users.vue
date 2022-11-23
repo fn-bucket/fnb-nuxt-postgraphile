@@ -28,7 +28,7 @@
           </div>
         </template>
       </el-table-column>
-      <el-table-column prop="recoveryEmail" label="Email" width="300">
+      <el-table-column prop="licenses" label="Licenses" width="300">
         <template #default="scope">
           <div style="display: flex; flex-direction: column">
             <el-tag v-for="l in scope.row.licenses.nodes">{{ l.licenseTypeKey }}</el-tag>
