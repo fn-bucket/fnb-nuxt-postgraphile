@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.3",
+    "element-plus": "^2.2.21",
+    "json-tree-view-vue3": "^0.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^3.0.0",
+    "nuxt-graphql-client": "^0.2.12",
+    "pg": "^8.8.0",
+    "pinia": "^2.0.23",
+    "pinia-plugin-persistedstate": "^2.4.0",
+    "postgraphile": "^4.12.11",
+    "snakecase-keys": "^5.4.4"
+  }
+}

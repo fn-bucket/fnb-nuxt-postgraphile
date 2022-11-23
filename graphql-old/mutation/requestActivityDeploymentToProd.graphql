@@ -1,0 +1,13 @@
+mutation RequestActivityDeploymentToProd(
+  $playKey: String!
+) {
+  requestActivityDeploymentToProd(input: {
+    _playKey: $playKey
+  }) {
+    activityDeployment {
+      id
+      createdAt
+      playKey
+    }
+  }
+}

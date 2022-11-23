@@ -1,0 +1,25 @@
+query AllProjects {
+  allTemplates: allProjects(
+    condition: {
+      isTemplate: true
+    }
+    orderBy: NAME_ASC
+  ) {
+    nodes {
+      id
+      createdAt
+      updatedAt
+      name
+      id
+      identifier
+      type
+      isTemplate
+      rootUow: uowByUowId {
+        id
+        identifier
+        name
+        updatedAt
+      }
+    }
+  }
+}

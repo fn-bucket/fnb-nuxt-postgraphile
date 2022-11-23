@@ -1,0 +1,14 @@
+mutation DeprecateSettingConfig(
+  $settingConfigId: String!
+  $hardDelete: Boolean!
+) {
+  deprecateGameSettingConfig(input: {
+    _settingConfigId: $settingConfigId
+    _hardDelete: $hardDelete
+  }) {
+    settingConfig {
+      id
+      name
+    }
+  }
+}

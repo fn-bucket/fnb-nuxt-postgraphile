@@ -1,0 +1,14 @@
+mutation LinkOldCustomerToAppTenant(
+  $oldCustomerCompanyId: String!
+  $appTenantId: String!
+) {
+  linkOldCustomerToAppTenant(input: {
+    _oldCustomerCompanyId: $oldCustomerCompanyId
+    _appTenantId: $appTenantId
+  }) {
+    oldCustomer {
+      companyId
+      companyName
+    }
+  }
+}

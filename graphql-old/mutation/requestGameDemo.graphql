@@ -1,0 +1,20 @@
+mutation RequestGameDemo(
+  $demoRequestInfo: DemoRequestInfoInput!
+) {
+	requestGameDemo(input: {
+    _demoRequestInfo: $demoRequestInfo
+  }) {
+    demoRequestResult {
+      gameSessionId
+      gameplayUrl
+      sessionTestUrl
+      appUserAuth0Info {
+        appUserId
+        appTenantId
+        firstName
+        recoveryEmail
+      }
+      gameInfo
+    }
+  }
+}

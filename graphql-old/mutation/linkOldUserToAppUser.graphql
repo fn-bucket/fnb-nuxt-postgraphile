@@ -1,0 +1,23 @@
+mutation LinkOldUserToAppUser(
+  $oldUserMemberId: String!
+  $appUserId: String!
+) {
+  linkOldUserToAppUser(input: {
+    _oldUserMemberId: $oldUserMemberId
+    _appUserId: $appUserId
+  }) {
+    oldUser {
+      memberId
+      firstName
+      lastName
+      email
+      appUser: appUserByAppUserId {
+        id
+        recoveryEmail
+        patient: patientByAppUserId {
+          id
+        }
+      }
+    }
+  }
+}

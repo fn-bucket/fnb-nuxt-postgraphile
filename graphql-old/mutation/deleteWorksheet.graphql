@@ -1,0 +1,9 @@
+mutation DeleteWorksheet (
+  $id: String!
+) {
+  deleteWorksheet(input: {
+    _id: $id
+  }) {
+    boolean
+  }
+}

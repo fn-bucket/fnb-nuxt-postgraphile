@@ -1,0 +1,37 @@
+query AllLicensePacks {
+  allLicenseTypes {
+    nodes {
+      key
+      permissionKey
+      applicationKey
+      name
+    }
+  }
+
+  allLicensePacks {
+    nodes {
+      id
+      key
+      name
+      price
+      renewalFrequency
+      type
+      availability
+      couponCode
+      licensePackLicenseTypes: licensePackLicenseTypesByLicensePackId {
+        nodes {
+          id
+          licenseType: licenseTypeByLicenseTypeKey {
+            key
+            name
+          }
+          licenseTypeKey
+          licenseCount
+          assignUponSubscription
+          unlimitedProvision
+          expirationInterval
+        }
+      }
+    }
+  }
+}

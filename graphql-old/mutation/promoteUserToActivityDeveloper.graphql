@@ -1,0 +1,14 @@
+mutation PromoteUserToActivityDeveloper(
+  $appUserId: String!
+){
+  promoteUserToActivityDeveloper(input: {
+    _appUserId: $appUserId
+  }) {
+    appUserAuth0Info {
+      appUserId
+      appRole
+      permissions
+      appTenantId
+    }
+  }
+}

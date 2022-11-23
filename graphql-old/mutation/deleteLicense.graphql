@@ -1,0 +1,9 @@
+mutation DeleteLicense(
+  $licenseId: String!
+){
+	deleteLicense(input: {
+    _licenseId: $licenseId
+  }) {
+    boolean
+  }
+}

@@ -1,0 +1,9 @@
+mutation DeleteAppErros (
+  $errorReportIds: [String]!
+) {
+  deleteAppErrors(input: {
+    _errorReportIds: $errorReportIds
+  }) {
+    boolean
+  }
+}

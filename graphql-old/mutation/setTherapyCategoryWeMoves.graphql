@@ -1,0 +1,14 @@
+mutation SetTherapyCategoryWeMoves(
+  $therapyCategoryId: String!
+  $weMoveIds: [String]!
+) {
+  setTherapyCategoryWeMoves(input: {
+    _therapyCategoryId: $therapyCategoryId
+    _weMoveIds: $weMoveIds
+  }) {
+    weMoveTherapyCategories {
+      weMoveId
+      therapyCategoryId
+    }
+  }
+}

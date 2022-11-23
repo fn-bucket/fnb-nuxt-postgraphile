@@ -1,0 +1,9 @@
+mutation ClearPatientClipboardWeMoves(
+  $patientId: String!
+) {
+  clearPatientClipboardWeMoves(input: {
+    _patientId: $patientId
+  }) {
+    boolean
+  }
+}

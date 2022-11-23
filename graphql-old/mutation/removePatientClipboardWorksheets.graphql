@@ -1,0 +1,14 @@
+mutation RemovePatientClipboardWorksheets(
+  $patientIds: [String]!
+  $worksheetIds: [String]!
+) {
+  removePatientClipboardWorksheets(input: {
+    _patientIds: $patientIds
+    _worksheetIds: $worksheetIds
+  }) {
+    patientClipboardWorksheets {
+      patientId
+      worksheetId
+    }
+  }
+}

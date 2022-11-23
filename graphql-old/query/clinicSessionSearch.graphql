@@ -1,0 +1,40 @@
+query ClinicSessionSearch(
+  $appUserId: String
+  $playKey: String
+  $gameSessionType: GameSessionType
+) {
+  clinicSessionSearch(_options: {
+    appUserId: $appUserId
+    playKey: $playKey
+    gameSessionType: $gameSessionType
+  }) {
+    nodes {
+      id
+      startedAt
+      gameConfiguration: gameConfigurationByGameConfigurationId {
+        id
+        name
+        version
+        game: gameByGameId {
+          id
+          name
+          playKey
+          versionName
+        }
+      }
+      scores: scoresByGameSessionId {
+        totalCount
+      }
+      appUser: appUserByAppUserId {
+        id
+        username
+        contact: contactByContactId {
+          id
+          lastName
+          firstName
+          fullName
+        }
+      }
+    }
+  }
+}

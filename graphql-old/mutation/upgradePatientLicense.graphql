@@ -1,0 +1,36 @@
+mutation UpgradePatientLicense (
+  $patientId: String!
+) {
+  upgradePatientLicense(input: {
+    _patientId: $patientId
+  }) {
+    appUserAuth0Info {
+      permissionKey
+      username
+      inactive
+      appTenantName
+      appTenantId
+      parentAppTenantId
+      subsidiaries {
+        id
+        name
+      }
+      appUserId
+      preferredTimezone
+      contactId
+      firstName
+      lastName
+      recoveryEmail
+      appRole
+      permissions
+      homePath          
+      libraries {
+        id
+        name
+        allowModalityConfiguration
+        backgroundMode
+      }
+      licensingScope
+    }
+  }
+}

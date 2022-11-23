@@ -1,0 +1,38 @@
+query AppTenantActiveLicenses {
+  currentAppTenant {
+    id
+    name
+    activeLicenses: licensesByAppTenantId(
+      condition: {
+        status: ACTIVE
+      }
+    ) {
+      nodes {
+        id
+        name
+        licenseTypeKey
+        expirationDate
+        status
+        statusReason
+        inactive
+        assignedToAppUser: appUserByAssignedToAppUserId {
+          id
+          username
+          contact: contactByContactId {
+            id
+            firstName
+            lastName
+            email
+          }
+        }
+        subscription: appTenantSubscriptionBySubscriptionId {
+          id
+          licensePack: licensePackByLicensePackId	{
+            id
+            key
+          }
+        }
+      }
+    }
+  }
+}

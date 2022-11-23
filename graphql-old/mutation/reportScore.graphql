@@ -1,0 +1,11 @@
+mutation ReportScore(
+  $sessionId: String!
+  $scoreInfo: JSON!
+) {
+  reportScore(input: {
+    _sessionId: $sessionId
+    _scoreInfo: $scoreInfo
+  }) {
+    json
+  }
+}

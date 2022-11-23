@@ -1,0 +1,19 @@
+query AllTherapists {
+  currentAppTenant {
+    id
+    name
+    therapists: therapistsByAppTenantId {
+      nodes {
+        id
+        contact: contactByContactId {
+          id
+          firstName
+          lastName
+          email
+          cellPhone
+          officePhone
+        }
+      }
+    }
+  }
+}

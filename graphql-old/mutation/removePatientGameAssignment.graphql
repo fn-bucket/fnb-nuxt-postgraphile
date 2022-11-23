@@ -1,0 +1,23 @@
+mutation RemovePatientGameAssignment(
+  $patientGameAssignmentId: String!
+) {
+  removeGameAssignment(input: {
+    _patientGameAssignmentId: $patientGameAssignmentId
+  }) {
+    patientGameAssignment {
+      id
+      assignedAt
+      unassignedAt
+      status
+      assignedBy: appUserByAssignedByUserId {
+        id
+      	contact: contactByContactId {
+          id
+          firstName
+          lastName
+          email
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+query SignedEulaById(
+  $signedEulaId: String!
+) {
+  signedEulaById(id: $signedEulaId) {
+    id
+    signedAt
+    content
+    eula: eulaByEulaId {
+      id
+      createdAt
+      isInactive
+      deactivatedAt
+    }
+    signedByAppUser: appUserBySignedByAppUserId {
+      id
+      username
+      contact: contactByContactId {
+        id
+        firstName
+        lastName
+        email
+        fullName
+      }
+    }
+  }
+}

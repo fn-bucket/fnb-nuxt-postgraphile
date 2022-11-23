@@ -1,0 +1,32 @@
+query AppTenantAppUsers {
+  currentAppTenant {
+    id
+    name
+    appTenantAppUsers: appUsersByAppTenantId{
+      nodes {
+        id
+        username
+        inactive
+        permissionKey
+        homePath
+        recoveryEmail
+        contact: contactByContactId {
+          id
+          fullName
+          email
+          organization: organizationByOrganizationId {
+            id
+            name
+          }
+        }
+        licenses: licensesByAssignedToAppUserId {
+          nodes {
+            id
+            name
+            licenseTypeKey
+          }
+        }
+      }
+    }
+  }
+}

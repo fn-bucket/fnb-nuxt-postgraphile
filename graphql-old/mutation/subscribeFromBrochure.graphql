@@ -1,0 +1,43 @@
+mutation SubscribeFromBrochure(
+  $subscribeFromBrochureInput: SubscribeFromBrochureInputRecordInput!
+) {
+  subscribeFromBrochure(input: {
+    _subscribeFromBrochureInput: $subscribeFromBrochureInput
+  }) {
+    subscribeFromBrochureResult {
+      appUserAuth0Info {
+        permissionKey
+        username
+        inactive
+        appTenantName
+        appTenantId
+        parentAppTenantId
+        subsidiaries {
+          id
+          name
+        }
+        appUserId
+        preferredTimezone
+        contactId
+        firstName
+        lastName
+        recoveryEmail
+        appRole
+        permissions
+        homePath          
+        libraries {
+          id
+          name
+          allowModalityConfiguration
+          backgroundMode
+        }
+        licensingScope
+      }
+      licensePack {
+        id
+        key
+      }
+      customPlanRequested
+    }
+  }
+}

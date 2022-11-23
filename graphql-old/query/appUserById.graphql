@@ -1,0 +1,88 @@
+query AppUserById(
+  $id: String!
+) {
+  appUserById(id: $id) {
+    id
+    username
+    recoveryEmail
+    extAuthId
+    extAuthBlocked
+    auth0Info
+    permissions
+    inactive
+    licensingStatus
+    permissionKey
+    preferredLanguage: supportedLanguageByLanguageId {
+      id
+      name
+    }
+    signedEulas: signedEulasBySignedByAppUserId(
+      orderBy: SIGNED_AT_DESC
+    ) {
+      nodes {
+        id
+        signedAt
+        eula: eulaByEulaId {
+          id
+          createdAt
+          isInactive
+          deactivatedAt
+        }
+      }
+    }
+    contact: contactByContactId {
+      id
+      fullName
+      firstName
+      lastName
+      email
+      officePhone
+      cellPhone
+    }
+    licenses: licensesByAssignedToAppUserId {
+      nodes {
+        id
+        name
+        licenseTypeKey
+        inactive
+        expirationDate
+        status
+        assignedToAppUser: appUserByAssignedToAppUserId {
+          id
+          username
+          contact: contactByContactId {
+            id
+            fullName
+            firstName
+            lastName
+            email
+            cellPhone
+            officePhone
+          }
+        }
+      }
+    }
+    appTenant: appTenantByAppTenantId {
+      id
+      name
+      anchorSubscription: appTenantSubscriptionByAnchorSubscriptionId {
+        id
+        availableLicenses {
+          nodes {
+            availableCount
+            licensePackLicenseType {
+              id
+              licenseTypeKey
+            }
+          }
+        }
+      }
+    }
+    therapist: therapistByAppUserId {
+      id
+    }
+    patient: patientByAppUserId {
+      id
+    }
+  }
+}

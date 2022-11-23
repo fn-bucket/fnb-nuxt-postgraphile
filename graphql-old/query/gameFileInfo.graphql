@@ -1,0 +1,5 @@
+query GameFileInfo (
+  $playKey: String!
+){
+  gameFileInfo(playKey: $playKey)
+}

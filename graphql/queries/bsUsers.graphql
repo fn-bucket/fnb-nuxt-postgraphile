@@ -1,0 +1,8 @@
+query BsUsers {
+  bsUsers {
+    nodes {
+      id
+      username
+    }
+  }
+}

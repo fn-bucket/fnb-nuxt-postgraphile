@@ -1,0 +1,16 @@
+mutation SetTherapyCategoryParent (
+	$therapyCategoryId: String!
+  $parentTherapyCategoryId: String
+){
+  setTherapyCategoryParent(input: {
+    _therapyCategoryId: $therapyCategoryId
+    _parentTherapyCategoryId: $parentTherapyCategoryId
+  }) {
+    therapyCategory {
+      id
+      name
+      key
+      parentTherapyCategoryId
+    }
+  }
+}

@@ -1,0 +1,20 @@
+query GetAppUserInfo (
+  $recoveryEmailOrId: String!
+) {
+  getAppUserInfo(_recoveryEmailOrIdOrUsername: $recoveryEmailOrId) {
+    permissionKey
+    username
+    inactive
+    appTenantName
+    appTenantId
+    appUserId
+    preferredTimezone
+    contactId
+    firstName
+    lastName
+    recoveryEmail
+    appRole
+    permissions
+    homePath
+  }
+}

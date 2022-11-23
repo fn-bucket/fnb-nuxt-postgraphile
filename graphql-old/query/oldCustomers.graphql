@@ -1,0 +1,18 @@
+query OldCustomers {
+  allOldCustomers {
+    totalCount
+    nodes {
+      companyId
+      clinicId
+      companyName
+      action
+      users: oldUsersByCompanyId {
+        totalCount
+      }
+      linkedAppTenant: appTenantByAppTenantId {
+        id
+        name
+      }
+    }
+  }
+}

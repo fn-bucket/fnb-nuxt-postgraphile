@@ -1,0 +1,21 @@
+query RecentAppUsers {
+  recentAppUsers: allAppUsers(
+    orderBy: CREATED_AT_DESC
+    first: 50
+  ) {
+    nodes {
+      id
+      username
+      recoveryEmail
+      createdAt
+      contact: contactByContactId {
+        fullName
+      }
+      appTenant: appTenantByAppTenantId {
+        id
+        name
+        type
+      }
+    }
+  }
+}

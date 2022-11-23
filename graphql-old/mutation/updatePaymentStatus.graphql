@@ -1,0 +1,16 @@
+mutation UpdatePaymentStatus(
+  $paymentId: String!
+  $paymentStatus: PaymentStatus!
+) {
+  updatePaymentStatus(input: {
+    _paymentId: $paymentId
+    _paymentStatus: $paymentStatus
+  }) {
+    payment {
+      id
+      status
+      billingDate
+      paymentDate
+    }
+  }
+}

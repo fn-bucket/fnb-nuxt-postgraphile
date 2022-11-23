@@ -1,0 +1,19 @@
+mutation SetContentSlugCurrentVersionSet(
+  $contentSlugId: String!
+  $versionIdentifier: String!
+) {
+  setContentSlugCurrentVersionSet(input: {
+    _contentSlugId: $contentSlugId
+    _versionIdentifier: $versionIdentifier
+  }) {
+    contentSlug {
+      id
+      key
+      data
+      content
+      entityType
+      entityIdentifier
+      description
+    }
+  }
+}

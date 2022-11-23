@@ -1,0 +1,116 @@
+query ActiveActivityAssignments(
+  $playKey: String!
+) {
+  activeActivityAssignments(_playKey: $playKey) {
+    nodes {
+      playKey
+      patient {
+        id
+        appUser: appUserByAppUserId {
+          id
+          username
+          contact: contactByContactId {
+            id
+            firstName
+            lastName
+            fullName
+          }
+        }
+      }
+      activityAssignments {
+        missingSettings
+        gamePlayListEntry {
+          id
+          ordinal
+          gameConfiguration: gameConfigurationByGameConfigurationId {
+            ...gameConfiguration30     
+          }
+          patientGameAssignment: patientGameAssignmentByPatientGameAssignmentId {
+            id
+            status
+            assignedAt
+            completionResults {
+              nodes {
+                sessionDate
+                dayAbbreviation
+                completed
+                scoreCount
+              }
+            }
+            assignedBy: appUserByAssignedByUserId {
+              id
+              contact: contactByContactId {
+                id
+                firstName
+                lastName
+                email
+              }
+            }
+            gameConfiguration: gameConfigurationByGameConfigurationId {
+              ...gameConfiguration30
+            }
+            game: gameByGameId {
+              id
+              name
+              playKey
+              versionName
+              parentId
+            }
+          }                  
+        }
+      }
+    }
+  }
+}
+
+fragment gameConfiguration30 on GameConfiguration {
+  id
+  name
+  version
+  completionScoreCount
+  createdAt
+  modality
+  canEdit
+  isPssb
+  isReducedStimulus
+  tags
+  prePlayMessage
+  backgroundColor
+  targetColor
+  highScore
+  lastScore
+  game: gameByGameId {
+    id
+    name
+    playKey
+    versionName
+    parentId
+  }
+  levels: levelsByGameConfigurationId {
+    nodes {
+      id
+      levelNumber
+      completionScore
+      completionCriteria
+      settings: gameLevelSettingsByLevelId {
+        nodes {
+          id
+          appTenantId
+          settingConfig: settingConfigBySettingConfigId {
+            id
+            name
+            displayName
+            ordinal
+            type
+            uiType
+            acceptedValues {
+              label
+              value
+            }
+          }
+          value
+        }
+      }
+    }
+  }  
+}

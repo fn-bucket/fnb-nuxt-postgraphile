@@ -1,0 +1,28 @@
+query LibraryPublicOfferings(
+  $libraryId: String!
+) {
+  libraryPublicOfferings(_libraryId: $libraryId) {
+    nodes {
+      id
+      name
+      key
+    }
+  }
+  licensePackContentSlugs: allContentSlugs(
+      condition: {
+        entityType: LICENSEPACK
+        type: SLUG
+      }
+    ) {
+      nodes {
+        id
+        key
+        entityType
+        entityIdentifier
+        description
+        content
+        data
+        type
+      }
+    }
+}

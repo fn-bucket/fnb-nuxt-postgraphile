@@ -1,0 +1,18 @@
+mutation VoidLicense(
+  $licenseTypeKey: String!
+  $appTenantSubscriptionId: String!
+  $reason: LicenseStatusReason!
+  $numberToVoid: Int!
+) {
+  voidLicenses(input: {
+    _licenseTypeKey: $licenseTypeKey
+    _appTenantSubscriptionId: $appTenantSubscriptionId
+    _reason: $reason
+    _numberToVoid: $numberToVoid
+  }) {
+    licenses {
+      id
+      status
+    }
+  }
+}

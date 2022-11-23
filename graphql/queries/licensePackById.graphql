@@ -1,0 +1,271 @@
+query LicensePackById(
+  $id: String!
+) {
+  licensePackById(id: $id) {
+    id
+    key
+    name
+    type
+    availability
+    price
+    renewalFrequency
+    expirationInterval
+    expirationIntervalMultiplier
+    explicitExpirationDate
+    couponCode
+    allowedActions
+    createdAt
+    publishedAt
+    discontinuedAt
+    isPublicOffering
+    implicitAddOnKeys
+    siblings {
+      published {
+        id
+        name
+        key
+      }
+      draft {
+        id
+        name
+        key
+      }
+      discontinued {
+        id
+        name
+        key
+        discontinuedAt
+      }
+    }
+    upgradeConfig {
+      upgradePaths {
+        licensePackKey
+        licenseTypeUpgrades {
+          sourceLicenseTypeKey
+          targetLicenseTypeKey
+        }
+      }
+    }
+    availableAddOnKeys
+    candidateAddOnKeys
+    candidateUpgradePathKeys
+    candidateLicenseTypeKeys
+    publishedAddOns {
+      id
+      key
+      name
+      type
+    }
+    draftAddOns {
+      id
+      key
+      name
+      type
+    }
+    discontinuedAddOns {
+      id
+      key
+      name
+      type
+    }
+    licensePackLicenseTypes: licensePackLicenseTypesByLicensePackId {
+      nodes {
+        id
+        licenseType: licenseTypeByLicenseTypeKey {
+          key
+          name
+        }
+        licenseTypeKey
+        licenseCount
+        assignUponSubscription
+        unlimitedProvision
+        expirationInterval
+      }
+    }  
+  }
+
+  allAddOns: allLicensePacks(condition: {
+    type: ADDON
+    availability: PUBLISHED
+  }) {
+    nodes {
+      id
+      key
+      name
+      type
+      availability
+      price
+      renewalFrequency
+      expirationInterval
+      expirationIntervalMultiplier
+      explicitExpirationDate
+      couponCode
+      allowedActions
+      createdAt
+      publishedAt
+      discontinuedAt
+      isPublicOffering
+      implicitAddOnKeys
+      siblings {
+        published {
+          id
+          name
+          key
+        }
+        draft {
+          id
+          name
+          key
+        }
+        discontinued {
+          id
+          name
+          key
+          discontinuedAt
+        }
+      }
+      upgradeConfig {
+        upgradePaths {
+          licensePackKey
+          licenseTypeUpgrades {
+            sourceLicenseTypeKey
+            targetLicenseTypeKey
+          }
+        }
+      }
+      availableAddOnKeys
+      candidateAddOnKeys
+      candidateUpgradePathKeys
+      candidateLicenseTypeKeys
+      publishedAddOns {
+        id
+        key
+        name
+        type
+      }
+      draftAddOns {
+        id
+        key
+        name
+        type
+      }
+      discontinuedAddOns {
+        id
+        key
+        name
+        type
+      }
+      licensePackLicenseTypes: licensePackLicenseTypesByLicensePackId {
+        nodes {
+          id
+          licenseType: licenseTypeByLicenseTypeKey {
+            key
+            name
+          }
+          licenseTypeKey
+          licenseCount
+          assignUponSubscription
+          unlimitedProvision
+          expirationInterval
+        }
+      }  
+    }
+  }
+
+  allAnchors: allLicensePacks(condition: {
+    type: ANCHOR
+    availability: PUBLISHED
+  }) {
+    nodes {
+      id
+      key
+      name
+      type
+      availability
+      price
+      renewalFrequency
+      expirationInterval
+      expirationIntervalMultiplier
+      explicitExpirationDate
+      couponCode
+      allowedActions
+      createdAt
+      publishedAt
+      discontinuedAt
+      isPublicOffering
+      implicitAddOnKeys
+      siblings {
+        published {
+          id
+          name
+          key
+        }
+        draft {
+          id
+          name
+          key
+        }
+        discontinued {
+          id
+          name
+          key
+          discontinuedAt
+        }
+      }
+      upgradeConfig {
+        upgradePaths {
+          licensePackKey
+          licenseTypeUpgrades {
+            sourceLicenseTypeKey
+            targetLicenseTypeKey
+          }
+        }
+      }
+      availableAddOnKeys
+      candidateAddOnKeys
+      candidateUpgradePathKeys
+      candidateLicenseTypeKeys
+      publishedAddOns {
+        id
+        key
+        name
+        type
+      }
+      draftAddOns {
+        id
+        key
+        name
+        type
+      }
+      discontinuedAddOns {
+        id
+        key
+        name
+        type
+      }
+      licensePackLicenseTypes: licensePackLicenseTypesByLicensePackId {
+        nodes {
+          id
+          licenseType: licenseTypeByLicenseTypeKey {
+            key
+            name
+          }
+          licenseTypeKey
+          licenseCount
+          assignUponSubscription
+          unlimitedProvision
+          expirationInterval
+        }
+      }  
+    }
+  }
+
+  allLicenseTypes {
+    nodes {
+      key
+      permissionKey
+      applicationKey
+      name
+    }
+  }
+}

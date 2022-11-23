@@ -1,0 +1,16 @@
+mutation UpsertGameSettingConfig(
+  $gameId: String!
+  $settingConfigInfo: SettingConfigInfoInput!
+) {
+  upsertGameSettingConfig (input: {
+    _gameId: $gameId
+    _settingConfigInfo: $settingConfigInfo
+  }) {
+    settingConfig {
+      id
+      name
+      type
+      uiType
+    }
+  }
+}

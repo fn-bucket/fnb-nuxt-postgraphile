@@ -1,0 +1,14 @@
+mutation SetTherapyCategoryWorksheets(
+  $therapyCategoryId: String!
+  $worksheetIds: [String]!
+) {
+  setTherapyCategoryWorksheets(input: {
+    _therapyCategoryId: $therapyCategoryId
+    _worksheetIds: $worksheetIds
+  }) {
+    worksheetTherapyCategories {
+      worksheetId
+      therapyCategoryId
+    }
+  }
+}

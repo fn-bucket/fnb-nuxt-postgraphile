@@ -1,0 +1,42 @@
+query PatientsWithUnacknowledgedMessages {
+  patientsWithUnacknowledgedMessages {
+    nodes {
+      id
+      appUserId
+      hasUnacknowledgedMessages
+      appUser: appUserByAppUserId {
+        id
+          licenses: activeLicenses {
+            nodes {
+              id
+              name
+              licenseTypeKey
+              expirationDate
+              createdAt          
+            }
+          }
+      }
+      contact: contactByContactId {
+        id
+        firstName
+        lastName
+        fullName
+        email
+        cellPhone
+        officePhone
+        hasUnansweredMessages
+      }
+      assignedGamesSummary(
+        first: 7
+      ) {
+        nodes{
+          sessionDate
+          dayAbbreviation
+          completeCount
+          assignedCount
+          evaluation
+        }
+      }      
+    }
+  }
+}

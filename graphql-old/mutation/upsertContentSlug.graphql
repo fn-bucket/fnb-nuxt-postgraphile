@@ -1,0 +1,32 @@
+mutation UpsertContentSlug(
+  $entityType: ContentEntityType
+  $entityIdentifier: String!
+  $key: String!
+  $description: String!
+  $content: String
+  $data: JSON
+  $type: ContentSlugType!
+) {
+  upsertContentSlug(input: {
+    _contentSlugInfo: {
+      entityType: $entityType
+      entityIdentifier: $entityIdentifier
+      key: $key
+      description: $description
+      content: $content
+      data: $data
+      type: $type
+    }
+  }) {
+    contentSlug {
+      id
+      entityType
+      entityIdentifier
+      key
+      description
+      content
+      data
+      type
+    }
+  }
+}

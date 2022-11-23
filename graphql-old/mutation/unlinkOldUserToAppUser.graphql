@@ -1,0 +1,14 @@
+mutation UnlinkOldUserToAppUser(
+  $oldUserMemberId: String!
+) {
+  unlinkOldUserToAppUser(input: {
+    _oldUserMemberId: $oldUserMemberId
+  }) {
+    oldUser {
+      memberId
+      firstName
+      lastName
+      email
+    }
+  }
+}

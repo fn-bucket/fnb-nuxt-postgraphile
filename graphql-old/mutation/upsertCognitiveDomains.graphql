@@ -1,0 +1,14 @@
+mutation UpsertCognitiveDomains(
+  $cognitiveDomainNames: [String]!
+) {
+  upsertCognitiveDomains(input: {
+    _cognitiveDomainNames: $cognitiveDomainNames
+  }) {
+    cognitiveDomains {
+      id
+      name
+      description
+      key
+    }
+  }
+}

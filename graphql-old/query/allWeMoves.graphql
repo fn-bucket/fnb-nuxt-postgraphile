@@ -1,0 +1,27 @@
+query AllWeMoves {
+  allWeMoves {
+    nodes {
+      id
+      name
+      key
+      createdAt
+      deactivatedDate
+      videoUrl
+      therapyCategories {
+        nodes {
+          id
+          name
+          key
+        }
+      }
+    }
+  }
+
+  allTherapyCategories {
+    nodes {
+      id
+      name
+      key
+    }
+  }
+}

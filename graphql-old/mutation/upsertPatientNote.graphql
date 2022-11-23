@@ -1,0 +1,15 @@
+mutation UpsertPatientNote(
+  $patientId: String!
+  $noteInfo: NoteInfoInput!
+) {
+  upsertPatientNote(input: {
+    _patientId: $patientId
+    _noteInfo: $noteInfo
+  }) {
+    patientNote {
+      id
+      noteId
+      patientId
+    }
+  }
+}

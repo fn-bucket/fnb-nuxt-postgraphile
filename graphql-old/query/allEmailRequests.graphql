@@ -1,0 +1,12 @@
+query EmailRequests {
+	allEmailRequests {
+    nodes {
+      id
+      subject
+      toAddresses
+      fromAddress
+      status
+      createdAt
+    }
+  }
+}

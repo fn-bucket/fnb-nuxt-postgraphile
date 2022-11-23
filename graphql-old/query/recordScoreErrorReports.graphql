@@ -1,0 +1,116 @@
+query RecordScoreErrorReports(
+  $status: ErrorReportStatus
+) {
+  recordScoreErrorReports(_options: {
+    status: $status
+  }) {
+    game {
+      id
+      name
+      playKey
+      versionName
+    }
+    gameSessionErrorResults {
+      gameSession {
+        id
+        startedAt
+        expiresAt
+        status
+        gameConfiguration: gameConfigurationByGameConfigurationId {
+          ...gameConfiguration20
+        }
+      }
+      errorReport {
+        id
+        operationName
+        status
+        firstReportedAt
+        lastReportedAt
+        observedCount
+        message
+        comment
+        variables
+        reportedBy: appUserByReportedByAppUserId {
+          id
+          username
+          appTenant: appTenantByAppTenantId {
+            id
+            name
+          }
+          contact: contactByContactId	{
+            id
+            fullName
+          }
+        }
+        reportedAs: appUserByReportedAsAppUserId {
+          id
+          username
+          appTenant: appTenantByAppTenantId {
+            id
+            name
+          }
+          contact: contactByContactId	{
+            id
+            fullName
+          }
+        }
+      }
+      score {
+        id
+        reportedAt
+        scoreInfo
+        
+      }
+    }
+  }
+}
+
+fragment gameConfiguration20 on GameConfiguration {
+  id
+  name
+  createdAt
+  modality
+  canEdit
+  isPssb
+  isReducedStimulus
+  tags
+  prePlayMessage
+  version
+  completionScoreCount
+  backgroundColor
+  targetColor
+  game: gameByGameId {
+    id
+    name
+    playKey
+    versionName
+    parentId
+  }
+  levels: levelsByGameConfigurationId {
+    nodes {
+      id
+      levelNumber
+      completionScore
+      completionCriteria
+      settings: gameLevelSettingsByLevelId {
+        nodes {
+          id
+          appTenantId
+          settingConfig: settingConfigBySettingConfigId {
+            id
+            name
+            displayName
+            ordinal
+            type
+            uiType
+            acceptedValues {
+              label
+              value
+            }
+          }
+          value
+        }
+      }
+    }
+  }  
+}

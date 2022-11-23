@@ -1,0 +1,12 @@
+query PublicOfferings{
+  publicOfferings {
+    nodes {
+      id
+      key
+      name
+      price
+      renewalFrequency
+      availableAddOnKeys
+    }
+  }
+}

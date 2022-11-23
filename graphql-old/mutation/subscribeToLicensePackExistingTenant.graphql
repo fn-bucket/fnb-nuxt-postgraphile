@@ -1,0 +1,21 @@
+mutation subscribeToLicensePackExistingTenant(
+  $licensePackKey: String!
+  $appTenantId: String!
+  $forceSubscribe: Boolean
+) {
+  subscribeToLicensePackExistingTenant(
+    input: { 
+      _licensePackKey: $licensePackKey
+      _existingTenantId: $appTenantId
+      _forceSubscribe: $forceSubscribe
+    }
+  ) {
+    appTenantSubscription {
+      id
+      licensePackByLicensePackId {
+        id
+        key
+      }
+    }
+  }
+}

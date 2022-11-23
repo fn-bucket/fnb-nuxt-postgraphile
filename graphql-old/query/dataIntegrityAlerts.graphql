@@ -1,0 +1,14 @@
+query DataIntegrityAlerts {
+  settingConfigsMissingDefaultValues {
+    nodes {
+      id
+      name
+      game: gameByGameId {
+        id
+        name
+        versionName
+        playKey
+      }
+    }
+  }
+}

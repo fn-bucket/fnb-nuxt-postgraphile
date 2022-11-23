@@ -1,0 +1,12 @@
+mutation UpsertAppTenantGroup(
+  $appTenantGroupInfo: AppTenantGroupInfoInput!
+) {
+  upsertAppTenantGroup(input: {
+    _appTenantGroupInfo: $appTenantGroupInfo
+  }) {
+    appTenantGroup {
+      id
+      name
+    }
+  }
+}

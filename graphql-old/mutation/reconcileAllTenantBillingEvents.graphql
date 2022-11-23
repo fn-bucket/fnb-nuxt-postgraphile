@@ -1,0 +1,72 @@
+mutation ReconcileAllTenantBillingEvents {
+  reconcileAllTenantBillingEvents(input:{}) {
+    appTenants {
+      id
+      parentAppTenantId
+      name
+      paymentStatusSummary {
+        status
+        pastduePayments {
+          id
+          status
+          amount
+          billingDate
+        }
+        scheduledPayments {
+          id
+          status
+          amount
+          billingDate
+        }
+      }
+      anchorSubscription: appTenantSubscriptionByAnchorSubscriptionId {
+        id
+        licensePack: licensePackByLicensePackId {
+          id
+          name
+          key
+          type
+          availability
+        }
+        payments: paymentsByAppTenantSubscriptionId {
+          nodes	{
+            id
+            billingDate
+            paymentDate
+            canceledDate
+            amount
+            status
+          }
+        }        
+      }
+      appTenantSubscriptions: activeSubscriptions {
+        nodes {
+          id
+          licensePack: licensePackByLicensePackId {
+            id
+            name
+            key
+            type
+          }
+          payments: paymentsByAppTenantSubscriptionId {
+            nodes	{
+              id
+              billingDate
+              paymentDate
+              canceledDate
+              amount
+              status
+            }
+          }
+        }
+      }
+      children: appTenantsByParentAppTenantId {
+        nodes {
+          id
+          parentAppTenantId
+          name
+        }
+      }
+    }
+  }
+}

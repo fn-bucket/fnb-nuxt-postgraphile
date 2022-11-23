@@ -1,0 +1,25 @@
+mutation SetGameCategorizations(
+  $gameId: String!
+  $therapyCategoryNames: [String]!
+  $cognitiveDomainNames: [String]!
+) {
+  setGameTherapyCategories(input: {
+    _gameId: $gameId
+    _therapyCategoryNames: $therapyCategoryNames
+  }) {
+    gameTherapyCategories {
+      gameId
+      therapyCategoryId
+    }
+  }
+  
+  setGameCognitiveDomains(input: {
+    _gameId: $gameId
+    _cognitiveDomainNames: $cognitiveDomainNames
+  }) {
+    gameCognitiveDomains {
+      gameId
+      cognitiveDomainId
+    }
+  }
+}

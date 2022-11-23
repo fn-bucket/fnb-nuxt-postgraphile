@@ -1,0 +1,14 @@
+mutation DemoteUserFromActivityDeveloper(
+  $appUserId: String!
+){
+  demoteUserFromActivityDeveloper(input: {
+    _appUserId: $appUserId
+  }) {
+    appUserAuth0Info {
+      appUserId
+      appRole
+      permissions
+      appTenantId
+    }
+  }
+}

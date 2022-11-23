@@ -1,0 +1,41 @@
+#mutation SendMessageToPatient(
+#  $patientMessageInfo: PatientMessageInfoInput!
+#) {
+#  sendMessageToPatient(input: {
+#    _patientMessageInfo: $patientMessageInfo
+#  }) {
+#    message {
+#      id
+#      content
+#    }
+#  }
+#}
+mutation SendMessageToPatient($patientMessageInfo: PatientMessageInfoInput!) {
+  sendMessageToPatient(input: { _patientMessageInfo: $patientMessageInfo }) {
+    message {
+      id
+      content
+      topicByTopicId {
+        id
+        messages: messagesByTopicId(
+          orderBy: CREATED_AT_DESC
+          condition: { status: SENT }
+        ) {
+          nodes {
+            id
+            createdAt
+            acknowledgedAt
+            content
+            tags
+            topicId
+            postedByContact: contactByPostedByContactId {
+              id
+              fullName
+              email
+            }
+          }
+        }
+      }
+    }
+  }
+}

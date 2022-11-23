@@ -1,0 +1,14 @@
+mutation UpsertTherapyCategories(
+  $therapyCategoryNames: [String]!
+) {
+  upsertTherapyCategories(input: {
+    _therapyCategoryNames: $therapyCategoryNames
+  }) {
+    therapyCategories {
+      id
+      name
+      description
+      key
+    }
+  }
+}

@@ -1,0 +1,19 @@
+query ActivityDeployments (
+  $playKey: String
+) {
+  allActivityDeployments(
+    condition: {
+    	playKey: $playKey
+    },
+    orderBy: CREATED_AT_DESC
+  ) {
+    nodes {
+      id
+      operationName
+      transferJobName
+      createdAt
+      status
+      transferJob
+    }
+  }
+}

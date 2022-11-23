@@ -1,0 +1,11 @@
+mutation ActivateSupportedLanguage(
+  $languageId: String!
+) {
+  activateSupportedLanguage(input: { _languageId: $languageId }) {
+    supportedLanguage {
+      id
+      name
+      inactive
+    }
+  }
+}

@@ -1,0 +1,10 @@
+query ActiveActivityAssignmentsManager {
+  activitiesWithAssignments {
+    nodes {
+      id
+      playKey
+      versionName
+      name      
+    }
+  }
+}

@@ -1,0 +1,28 @@
+query AllWorksheets {
+  allWorksheets {
+    nodes {
+      id
+      name
+      description
+      level
+      downloadUrl
+      key
+      createdAt
+      therapyCategories {
+        nodes {
+          id
+          name
+          key
+        }
+      }
+    }
+  }
+
+  allTherapyCategories {
+    nodes {
+      id
+      name
+      key
+    }
+  }
+}

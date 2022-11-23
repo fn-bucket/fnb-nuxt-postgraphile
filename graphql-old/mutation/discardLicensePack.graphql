@@ -1,0 +1,9 @@
+mutation DiscardLicensePack(
+  $id: String!
+) {
+  discardLicensePack(input: {
+    _id: $id
+  }) {
+    boolean
+  }
+}

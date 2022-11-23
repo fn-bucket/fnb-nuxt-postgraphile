@@ -1,0 +1,13 @@
+mutation ConsolidateLicensePack(
+  $sourceLicensePackId: String!
+  $targetLicensePackId: String!
+) {
+  consolidateAppTenantSubscription(input: {
+    _sourceAppTenantSubscriptionId: $sourceLicensePackId
+    _sourceAppTenantSubscriptionId: $targetLicensePackId
+  }) {
+    appTenantSubscription {
+      id
+    }
+  }
+}

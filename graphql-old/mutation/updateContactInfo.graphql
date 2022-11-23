@@ -1,0 +1,18 @@
+mutation UpdateContactInfo(
+  $contactId: String!
+  $contactInfo: UpdateContactInfoInputRecordInput!
+) {
+  updateContactInfo(input: {
+    _contactId: $contactId
+    _contactInfo: $contactInfo
+  }) {
+    contact {
+      id
+      firstName
+      lastName
+      email
+      officePhone
+      cellPhone
+    }
+  }
+}

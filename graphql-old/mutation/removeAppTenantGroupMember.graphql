@@ -1,0 +1,11 @@
+mutation RemoveAppTenantGroupMember (
+  $appTenantGroupId: String!
+  $appTenantId: String!
+) {
+  removeAppTenantGroupMember (input: {
+    _appTenantGroupId: $appTenantGroupId
+    _appTenantId: $appTenantId
+  }) {
+    boolean
+  }
+}

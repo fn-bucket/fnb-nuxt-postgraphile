@@ -1,0 +1,9 @@
+mutation DeactivateAppUser(
+  $appUserId: String!
+) {
+  deactivateAppUser(input: {
+    _appUserId: $appUserId
+  }) {
+    json
+  }
+}

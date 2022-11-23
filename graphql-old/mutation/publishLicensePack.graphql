@@ -1,0 +1,16 @@
+mutation PublishLicensePack(
+  $id: String!
+  $discontinueExisting: Boolean!
+) {
+  publishLicensePack(input: {
+    _id: $id
+    _discontinueExisting: $discontinueExisting
+  }) {
+    licensePack {
+      id
+      key
+      name
+      availability
+    }
+  }
+}

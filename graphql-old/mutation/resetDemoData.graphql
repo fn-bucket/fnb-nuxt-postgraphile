@@ -1,0 +1,12 @@
+mutation ResetDemoData(
+  $appTenantId: String!
+) {
+  resetDemoData(input:{
+    _appTenantId: $appTenantId
+  }) {
+    appTenant {
+      id
+      name
+    }
+  }
+}

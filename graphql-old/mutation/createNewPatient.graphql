@@ -1,0 +1,18 @@
+mutation CreateNewPatient(
+  $licenseTypeKey: String!
+  $appTenantSubscriptionId: String!
+  $userInfo: NewAppUserInfoInput!
+  $linkToOldUserMemberId: String
+){
+  createNewPatient(input: {
+    _licenseTypeKey: $licenseTypeKey
+    _subscriptionId: $appTenantSubscriptionId
+    _userInfo: $userInfo
+    _linkToOldUserMemberId: $linkToOldUserMemberId
+  }) {
+    patient {
+      id
+      fullName
+    }
+  }
+}

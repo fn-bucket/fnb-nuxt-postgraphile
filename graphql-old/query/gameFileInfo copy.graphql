@@ -1,0 +1,16 @@
+query GameFileInfo (
+  $playKey: String!
+){
+  gameFileInfo(playKey: $playKey) {
+    c3pFiles {
+      gcpId
+      name
+      timeCreated
+    }
+    zipFiles {
+      gcpId
+      name
+      timeCreated
+    }
+  }
+}

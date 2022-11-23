@@ -1,0 +1,74 @@
+query GameLanguageManagerManager {
+  allSupportedLanguages {
+    nodes {
+      id
+      name
+      inactive
+      gameLanguageManagers: gameLanguageManagersByLanguageId {
+        nodes {
+          id
+          language: supportedLanguageByLanguageId {
+            id
+            name
+          }
+          appUser: appUserByAppUserId {
+            id
+            username
+            appTenant: appTenantByAppTenantId {
+              id
+              name
+            }
+            contact: contactByContactId {
+              id
+              firstName
+              lastName
+              fullName
+              email
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  eligibleGameLanguageManagerCandidates {
+    nodes {
+      id
+      username
+      permissionKey
+      permissions
+      contact: contactByContactId {
+        id
+        firstName
+        lastName
+        email
+        fullName
+      }
+      appTenant: appTenantByAppTenantId {
+        id
+        name
+      }
+    }
+  }
+
+  allGameLanguageManagers {
+    nodes {
+      id
+      appUser: appUserByAppUserId {
+        id
+        username
+        contact: contactByContactId {
+          id
+          firstName
+          lastName
+          email
+          fullName
+        }
+        appTenant: appTenantByAppTenantId {
+          id
+          name
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+mutation ChangeAppTenantType(
+  $appTenantId: String!
+  $appTenantType: AppTenantType!
+) {
+  changeAppTenantType(input: {
+    _appTenantId: $appTenantId
+    _appTenantType: $appTenantType
+  }) {
+    appTenant {
+      id
+      name
+      type
+    }
+  }
+}

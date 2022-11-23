@@ -1,0 +1,29 @@
+query AllAppUsers {
+  allAppUsers {
+    nodes {
+      id
+      username
+      recoveryEmail
+      contact: contactByContactId {
+        id
+        firstName
+        lastName
+        fullName
+        email
+        cellPhone
+        officePhone
+        title
+      }
+      licenses: licensesByAssignedToAppUserId {
+        nodes {
+          id
+          name
+          licenseTypeKey
+          inactive
+          expirationDate
+          status
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+mutation DeactivateAppTenantSubscription(
+  $appTenantSubscriptionId: String!
+) {
+  deactivateAppTenantSubscription(input: {
+    _appTenantSubscriptionId: $appTenantSubscriptionId
+  }) {
+    appTenantSubscription {
+      id
+			inactive
+    }
+  }
+}

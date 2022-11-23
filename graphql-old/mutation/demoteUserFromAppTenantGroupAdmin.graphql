@@ -1,0 +1,16 @@
+mutation DemoteUserFromAppTenantGroupAdmin(
+  $appUserId: String!
+  $appTenantGroupId: String!
+){
+  demoteUserFromAppTenantGroupAdmin(input: {
+    _appUserId: $appUserId
+    _appTenantGroupId: $appTenantGroupId
+  }) {
+    appUserAuth0Info {
+      appUserId
+      appRole
+      permissions
+      appTenantId
+    }
+  }
+}

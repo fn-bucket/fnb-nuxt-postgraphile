@@ -1,0 +1,28 @@
+query ExpiredLicenses(
+  $appTenantId: String
+) {
+	expiredLicenses(_appTenantId: $appTenantId) {
+    totalCount
+    nodes {
+      id
+      licenseTypeKey
+      expirationDate
+      appUser: appUserByAssignedToAppUserId {
+        id
+        recoveryEmail
+        contact: contactByContactId {
+          id
+          fullName
+          firstName
+          lastName
+          email
+        }
+      }
+      appTenant: appTenantByAppTenantId {
+        id
+        parentAppTenantId
+        name
+      }
+    }
+  }
+}

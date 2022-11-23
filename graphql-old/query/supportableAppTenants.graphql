@@ -1,0 +1,11 @@
+query SupportableAppTenants(
+  $appTenantGroupId: String
+) {
+  supportableAppTenants(_appTenantGroupId: $appTenantGroupId) {
+    nodes {
+      id
+      name
+      anchorSubscriptionKey
+    }
+  }
+}

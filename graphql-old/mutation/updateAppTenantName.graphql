@@ -1,0 +1,14 @@
+mutation UpdateAppTenantName(
+  $appTenantId: String!
+  $name: String!
+) {
+	updateAppTenantName(input: {
+    _appTenantId: $appTenantId
+    _name: $name
+  }) {
+    appTenant {
+      id
+      name
+    }
+  }
+}

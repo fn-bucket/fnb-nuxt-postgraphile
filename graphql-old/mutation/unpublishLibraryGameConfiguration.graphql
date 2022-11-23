@@ -1,0 +1,15 @@
+mutation UnpublishGameConfiguration (
+  $libraryId: String!
+  $gameConfigurationId: String
+) {
+  unpublishGameConfiguration(input: {
+    _libraryId: $libraryId
+    _gameConfigurationId: $gameConfigurationId
+  }) {
+    gameConfiguration {
+      id
+      libraryId
+      type
+    }
+  }
+}

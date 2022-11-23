@@ -1,0 +1,14 @@
+mutation TerminateGameSession(
+  $sessionId: String!
+) {
+  terminateGameSession(input: {
+    _sessionId: $sessionId
+  }) {
+    gameSession {
+      id
+      status
+      type
+      expiresAt
+    }
+  }
+}

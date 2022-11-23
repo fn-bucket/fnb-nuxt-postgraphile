@@ -1,0 +1,18 @@
+mutation PromoteGameSettingConfigOrdinal(
+  $settingConfigId: String!
+) {
+  promoteGameSettingConfigOrdinal(input: {
+    _settingConfigId: $settingConfigId
+  }) {
+    settingConfig {
+      id
+      name
+      ordinal
+      acceptedValues {
+        label
+        value
+        label
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+mutation AddPatientClipboardWeMoves(
+  $patientIds: [String]!
+  $weMoveIds: [String]!
+) {
+  addPatientClipboardWeMoves(input: {
+    _patientIds: $patientIds
+    _weMoveIds: $weMoveIds
+  }) {
+    patientClipboardWeMoves {
+      patientId
+      weMoveId
+    }
+  }
+}

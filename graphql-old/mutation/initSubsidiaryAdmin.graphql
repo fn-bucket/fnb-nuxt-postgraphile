@@ -1,0 +1,43 @@
+mutation InitSubsidiaryAdmin(
+  $subsidiaryAppTenantId: String!
+) {
+  initSubsidiaryAdmin(input: {
+    _subsidiaryAppTenantId: $subsidiaryAppTenantId
+  }) {
+    initSubsidiaryAdminResult {
+	    appUserAuth0Info {
+        permissionKey
+        username
+        inactive
+        appTenantName
+        appTenantId
+        parentAppTenantId
+        subsidiaries {
+          id
+          name
+        }
+        appUserId
+        preferredTimezone
+        contactId
+        firstName
+        lastName
+        recoveryEmail
+        appRole
+        permissions
+        homePath          
+        libraries {
+          id
+          name
+          allowModalityConfiguration
+          backgroundMode
+        }
+        licensingScope
+      }
+      subsidiaryAppTenant {
+        id
+        name
+        identifier
+      }
+   }
+  }
+}

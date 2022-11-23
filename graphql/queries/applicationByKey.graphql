@@ -1,0 +1,18 @@
+query ApplicationByKey ($key: String!) {
+  applicationByKey(key: $key) {
+    key
+    name
+    licenseTypes: licenseTypesByApplicationKey {
+      nodes {
+        key
+        name
+        permissionKey
+        permissions: licenseTypePermissionsByLicenseTypeKey {
+          nodes {
+            permissionKey
+          }
+        }
+      }
+    }    
+  }
+}

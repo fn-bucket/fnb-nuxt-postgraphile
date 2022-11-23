@@ -1,0 +1,16 @@
+mutation CloneClinicPlaylistForPatient(
+  $gamePlayListId: String!
+  $patientId: String!
+  $removeExistingEntries: Boolean!
+) {
+  cloneClinicPlaylistForPatient(input: {
+    _gamePlayListId: $gamePlayListId
+    _patientId: $patientId
+    _removeExistingEntries: $removeExistingEntries
+  }) {
+    gamePlayList {
+      id
+      name
+    }
+  }
+}

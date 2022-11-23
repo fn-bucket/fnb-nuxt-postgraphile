@@ -1,0 +1,55 @@
+query PatientSearch(
+  $searchTerm: String
+  $excludeInactive: Boolean
+  $itemOffset: Int
+  $itemLimit: Int
+  $orderBy: PatientSearchOrderByField
+  $orderDirection: OrderDirection
+) {
+  patientSearch(_options: {
+    searchTerm: $searchTerm
+    excludeInactive: $excludeInactive
+    itemOffset: $itemOffset
+    itemLimit: $itemLimit
+    orderBy: $orderBy
+    orderDirection: $orderDirection
+  }) {
+    totalCount
+    patientSearchResults {
+      patient {
+        id
+        appUserId
+        hasUnacknowledgedMessages
+        appUser: appUserByAppUserId {
+          id
+            licenses: activeLicenses {
+              nodes {
+                id
+                name
+                licenseTypeKey
+                expirationDate
+                createdAt          
+              }
+            }
+        }
+        contact: contactByContactId {
+          id
+          firstName
+          lastName
+          # fullName
+          email
+          # cellPhone
+          # officePhone
+          # hasUnansweredMessages
+        }        
+      }
+      assignedGamesSummary: assignedGamesSummaryResults {
+        sessionDate
+        dayAbbreviation
+        completeCount
+        assignedCount
+        evaluation        
+      }
+    }
+  }
+}

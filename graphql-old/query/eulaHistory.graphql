@@ -1,0 +1,11 @@
+query EulaHistory {
+  allEulas(orderBy: CREATED_AT_DESC) {
+    nodes {
+      id
+      createdAt
+      deactivatedAt
+      id
+      content
+    }
+  }
+}

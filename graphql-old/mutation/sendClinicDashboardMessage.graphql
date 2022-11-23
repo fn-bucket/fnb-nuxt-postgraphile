@@ -1,0 +1,30 @@
+mutation SendBillingMessage($content: String!, $tags: [String]) {
+  sendClinicDashboardMessage(input: {_content: $content, _tags: $tags}) {
+    message {
+      id
+      content
+      tags
+      topicId
+      topicByTopicId {
+        messages: messagesByTopicId (
+          orderBy: CREATED_AT_DESC
+          condition: {
+            status: SENT
+          }
+        ) {
+          nodes {
+            id
+            createdAt
+            content
+            tags
+            postedByContact: contactByPostedByContactId {
+              id
+              fullName
+              email
+            }
+          }
+        }
+      }
+    }
+  }
+}

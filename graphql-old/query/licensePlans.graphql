@@ -1,0 +1,16 @@
+query licensePlans {
+  vision:libraryPublicOfferings(_libraryId: "vision") {
+    nodes {
+      id
+      name
+      key
+    }
+  }
+  occupational:libraryPublicOfferings(_libraryId: "occupational") {
+    nodes {
+      id
+      name
+      key
+    }
+  }
+}

@@ -1,0 +1,25 @@
+query ClinicGameConfigurations {
+  clinicGameConfigurations {
+    nodes {
+      id
+      name
+      game: gameByGameId {
+        id
+        name
+        playKey
+        versionName
+        parentId
+      }
+      parent: gameConfigurationByParentGameConfigurationId {
+        id
+        name
+      }
+      children: gameConfigurationsByParentGameConfigurationId {
+        nodes {
+          id
+          name
+        }
+      }
+    }
+  }
+}

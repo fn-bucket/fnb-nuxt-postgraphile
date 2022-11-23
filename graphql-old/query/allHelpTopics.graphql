@@ -1,0 +1,15 @@
+query AllHelpTopics {
+  allHelpTopics {
+    nodes {
+      id
+      createdAt
+      status
+      name
+      summary
+      content
+      videoUrl
+      downloadUrl
+      tags
+    }
+  }
+}

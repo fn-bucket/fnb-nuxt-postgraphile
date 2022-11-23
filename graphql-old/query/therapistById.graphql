@@ -1,0 +1,15 @@
+query TherapistById(
+  $id: String!
+) {
+  therapistById(id: $id) {
+    id
+    contact: contactByContactId {
+      id
+      firstName
+      lastName
+      email
+      cellPhone
+      officePhone
+    }
+  }
+}

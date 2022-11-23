@@ -1,0 +1,35 @@
+query AppTenantById(
+  $appTenantId: String!
+) {
+  appTenantById(id: $appTenantId) {
+    id
+    parentAppTenantId
+    name
+    type
+    appUsers: appUsersByAppTenantId {
+      nodes {
+        id
+        username
+        inactive
+        permissionKey
+        licenses: licensesByAssignedToAppUserId {
+          nodes {
+            id
+            name
+            licenseTypeKey
+          }
+        }
+      }
+    }
+    anchorSubscription: appTenantSubscriptionByAnchorSubscriptionId {
+      id
+      licensePack: licensePackByLicensePackId {
+        id
+        name
+        key
+        type
+        availability
+      }
+    }
+  }
+}

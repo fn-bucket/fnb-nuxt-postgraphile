@@ -1,0 +1,9 @@
+mutation ClearPatientClipboardWorksheets(
+  $patientId: String!
+) {
+  clearPatientClipboardWorksheets(input: {
+    _patientId: $patientId
+  }) {
+    boolean
+  }
+}

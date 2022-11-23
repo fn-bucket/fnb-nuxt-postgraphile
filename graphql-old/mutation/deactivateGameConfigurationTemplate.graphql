@@ -1,0 +1,13 @@
+mutation DeactivateGameConfigurationTemplate (
+  $gameConfigurationId: String
+) {
+  deactivateGameConfiguration(input: {
+    _gameConfigurationId: $gameConfigurationId
+  }) {
+    gameConfiguration {
+      id
+      name
+      isInactive
+    }
+  }
+}

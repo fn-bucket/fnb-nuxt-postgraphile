@@ -1,0 +1,29 @@
+query LicenseById(
+  $licenseId: String!
+) {
+  licenseById(id: $licenseId) {
+    id
+    licenseTypeKey
+    expirationDate
+    inactive
+    status
+    statusReason
+    permissions: licensePermissionsByLicenseId {
+      nodes {
+        id
+        permissionKey
+      }
+    }
+    appTenantSubscription: appTenantSubscriptionBySubscriptionId {
+      id
+      inactive
+      isAnchorSubscription
+      expirationDate
+      renewalBehavior
+      licensePack: licensePackByLicensePackId {
+        id
+        key
+      }
+    }
+  }
+}

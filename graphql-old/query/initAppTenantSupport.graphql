@@ -1,0 +1,30 @@
+query InitAppTenantSupport (
+  $appTenantId: String!
+) {
+  initAppTenantSupport(
+    _appTenantId: $appTenantId    
+  ) {
+    permissionKey
+    username
+    inactive
+    appTenantName
+    appTenantId
+    parentAppTenantId
+    appUserId
+    preferredTimezone
+    contactId
+    firstName
+    lastName
+    recoveryEmail
+    appRole
+    permissions
+    homePath   
+    libraries {
+      id
+      name
+      allowModalityConfiguration
+      backgroundMode
+    }
+    licensingScope
+  }
+}

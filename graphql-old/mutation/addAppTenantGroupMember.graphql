@@ -1,0 +1,15 @@
+mutation AddAppTenantGroupMember (
+  $appTenantGroupId: String!
+  $appTenantId: String!
+) {
+  addAppTenantGroupMember (input: {
+    _appTenantGroupId: $appTenantGroupId
+    _appTenantId: $appTenantId
+  }) {
+    appTenantGroupMember {
+      id
+      appTenantId
+      appTenantGroupId
+    }
+  }
+}

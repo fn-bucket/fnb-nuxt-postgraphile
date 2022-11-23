@@ -1,0 +1,26 @@
+mutation ClinicDiscussionTopic {
+  clinicDiscussionTopic(input: {}) {
+    topic {
+      id
+      name
+      messages: messagesByTopicId (
+        orderBy: CREATED_AT_DESC
+        condition: {
+          status: SENT
+        }
+      ) {
+        nodes {
+          id
+          createdAt
+          content
+          tags
+          postedByContact: contactByPostedByContactId {
+            id
+            fullName
+            email
+          }
+        }
+      }
+    }
+  }
+}

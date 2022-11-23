@@ -1,0 +1,15 @@
+mutation UpdateAppUserPreferredLanguage(
+  $appUserId: String!
+  $languageId: String!
+) {
+  updateAppUserPreferredLanguage(input: {
+    _appUserId: $appUserId
+    _languageId: $languageId
+  }) {
+    appUser {
+      id
+      username
+      languageId
+    }
+  }
+}

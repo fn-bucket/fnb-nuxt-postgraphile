@@ -1,0 +1,12 @@
+mutation UpsertGameConfiguration(
+  $gameConfigurationInfo: GameConfigurationInfoInput
+){
+  upsertGameConfiguration(input: {
+    _gameConfigurationInfo: $gameConfigurationInfo
+  }) {
+    gameConfiguration {
+      id
+      name
+    }
+  }
+}

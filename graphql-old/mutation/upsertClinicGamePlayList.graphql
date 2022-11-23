@@ -1,0 +1,21 @@
+mutation UpsertClinicGamePlayList(
+  $id: String
+  $name: String!
+  $description: String
+  $tags: [String]
+) {
+  upsertClinicGamePlayList(input: {
+    _clinicGamePlayListInfo: {
+      id: $id
+      name: $name
+      description: $description
+      tags: $tags
+    }
+  }) {
+    gamePlayList {
+      id
+      name
+      description
+    }
+  }
+}

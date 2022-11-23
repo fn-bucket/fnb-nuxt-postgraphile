@@ -1,0 +1,41 @@
+query AppTenantAppUsers {
+  currentAppTenant {
+    id
+    name
+    activeGuestUsers {
+      nodes {
+        ...appTenantGuestUsersFrag
+      }
+    }
+    inactiveGuestUsers {
+      nodes {
+        ...appTenantGuestUsersFrag
+      }
+    }
+  }
+}
+
+fragment appTenantGuestUsersFrag on AppUser {
+  id
+  username
+  inactive
+  permissionKey
+  homePath
+  recoveryEmail
+  contact: contactByContactId {
+    id
+    fullName
+    email
+    organization: organizationByOrganizationId {
+      id
+      name
+    }
+  }
+  licenses: licensesByAssignedToAppUserId {
+    nodes {
+      id
+      name
+      licenseTypeKey
+    }
+  }
+}

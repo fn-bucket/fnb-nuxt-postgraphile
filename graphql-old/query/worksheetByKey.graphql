@@ -1,0 +1,54 @@
+query WorksheetByKey(
+  $key: String!
+) {
+  worksheetByKey(key: $key) {
+    id
+    name
+    key
+    createdAt
+    description
+    level
+    therapyCategories {
+      nodes {
+        id
+        name
+        key
+      }
+    }
+  }
+
+  worksheetAttachments: allContentSlugs(
+    condition: {
+      entityType: WORKSHEET
+      entityIdentifier: $key
+      type: ATTACHMENT
+    }
+  ) {
+    nodes {
+      id
+      key
+      entityType
+      entityIdentifier
+      description
+      content
+      data
+      type
+    }
+  }
+
+  allTherapyCategories {
+    nodes {
+      id
+      name
+      key
+    }
+  }
+
+  allWorksheets {
+    nodes {
+      id
+      name
+      key
+    }
+  }
+}	

@@ -1,0 +1,167 @@
+query AppTenantById(
+  $appTenantId: String!
+) {
+  appTenantById(id: $appTenantId) {
+    id
+    parentAppTenantId
+    name
+    type
+    subsidiaries: appTenantsByParentAppTenantId {
+      nodes {
+        id
+        name
+      }
+    }
+    appUsers: appUsersByAppTenantId {
+      nodes {
+        id
+        username
+        inactive
+        permissionKey
+        licenses: licensesByAssignedToAppUserId {
+          nodes {
+            id
+            name
+            licenseTypeKey
+          }
+        }
+      }
+    }
+    anchorSubscription: appTenantSubscriptionByAnchorSubscriptionId {
+      id
+      licensePack: licensePackByLicensePackId {
+        id
+        name
+        key
+        type
+        availability
+      }
+      payments: paymentsByAppTenantSubscriptionId {
+        nodes	{
+          id
+          billingDate
+          paymentDate
+          canceledDate
+          amount
+          status
+        }
+      }        
+    }
+    children: appTenantsByParentAppTenantId {
+      nodes {
+        id
+        parentAppTenantId
+        name
+      }
+    }
+		activeSubscriptions {
+      nodes {
+        id
+        appTenantId
+        expirationDate
+        inactive
+        isAnchorSubscription
+        availableUpgradePaths {
+          nodes {
+            id
+            key
+            name
+          }
+        }
+        availableAddOns {
+          nodes {
+            id
+            key
+            name
+          }
+        }
+        availableLicenses {
+          nodes {
+            licensePackLicenseType {
+              id
+              licenseTypeKey
+            }
+            availableCount
+            provisionedCount
+            activeCount
+            inactiveCount
+            canProvision
+          }
+        }
+        appTenant: appTenantByAppTenantId {
+          id
+          name
+          appUsersByAppTenantId(
+            condition: { permissionKey: ADMIN }
+            first: 1
+            orderBy: CREATED_AT_DESC
+          ) {
+            nodes {
+              id
+              username
+              contact: contactByContactId {
+                id
+                firstName
+                lastName
+                email
+              }
+            }
+          }
+        }
+        licensePack: licensePackByLicensePackId {
+          id
+          name
+          key
+          price
+          type
+          availability
+          renewalFrequency
+          upgradeConfig {
+            upgradePaths {
+              licensePackKey
+              licenseTypeUpgrades {
+                sourceLicenseTypeKey
+                targetLicenseTypeKey
+              }
+            }
+          }
+          licenseTypes: licensePackLicenseTypesByLicensePackId {
+            nodes {
+              id
+              licenseTypeKey
+              licenseCount
+              assignUponSubscription
+              unlimitedProvision
+            }
+          }
+        }
+        assignedLicenses: licensesBySubscriptionId {
+          nodes {
+            id
+            name
+            licenseTypeKey
+            inactive
+            canActivate
+            assignedToAppUser: appUserByAssignedToAppUserId {
+              id
+              username
+              appTenant: appTenantByAppTenantId {
+                id
+                name
+              }
+              contact: contactByContactId {
+                id
+                fullName
+                firstName
+                lastName
+                email
+                cellPhone
+                officePhone
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

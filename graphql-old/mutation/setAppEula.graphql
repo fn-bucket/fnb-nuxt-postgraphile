@@ -1,0 +1,15 @@
+mutation SetAppEula(
+  $content: String!
+) {
+  setAppEula(input: {
+    _content: $content
+  }) {
+    eula {
+      id
+      createdAt
+      updatedAt
+      content
+      isInactive
+    }
+  }
+}

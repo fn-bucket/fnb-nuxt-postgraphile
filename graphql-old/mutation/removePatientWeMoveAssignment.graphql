@@ -1,0 +1,23 @@
+mutation RemovePatientWeMoveAssignment(
+  $patientWeMoveAssignmentId: String!
+) {
+  removeWeMoveAssignment(input: {
+    _patientWeMoveAssignmentId: $patientWeMoveAssignmentId
+  }) {
+    patientWeMoveAssignment {
+      id
+      assignedAt
+      unassignedAt
+      status
+      assignedBy: appUserByAssignedByUserId {
+        id
+      	contact: contactByContactId {
+          id
+          firstName
+          lastName
+          email
+        }
+      }
+    }
+  }
+}

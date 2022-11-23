@@ -1,0 +1,6 @@
+query HousekeepingTasks{
+  housekeepingTasks {
+  	key
+    data
+  }
+}

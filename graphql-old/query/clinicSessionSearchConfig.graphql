@@ -1,0 +1,20 @@
+query ClinicSessionSearchConfig{
+  clinicSessionSearchConfig {
+    gameSessionTypes
+    games {
+      id
+      name
+      playKey
+    }
+    appUsers {
+      id
+      username
+      contact: contactByContactId {
+        id
+        firstName
+        lastName
+        email
+      }
+    }
+  }
+}

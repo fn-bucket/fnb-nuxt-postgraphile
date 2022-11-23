@@ -1,0 +1,21 @@
+query PatientClipboardWeMoves(
+  $patientId: String!
+) {
+  patientById(id: $patientId) {
+    id
+    contact: contactByContactId {
+      id
+      firstName
+      lastName
+      email
+      cellPhone
+      officePhone
+    }
+    clipboardWeMoves {
+      nodes {
+        id
+        name
+      }
+    }
+  }
+}

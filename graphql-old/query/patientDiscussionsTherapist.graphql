@@ -1,0 +1,60 @@
+query PatientDiscussionsTherapist(
+  $id: String!
+) {
+  patientById(id: $id) {
+    id
+    createdDate
+    deactivatedDate
+    contact: contactByContactId {
+      id
+      fullName
+      email
+    }
+  	topicInclusive: topicByTopicIdInclusive {
+      id
+      name
+      messages: messagesByTopicId (
+        orderBy: CREATED_AT_DESC
+        condition: {
+          status: SENT
+        }
+      ) {
+        nodes {
+          id
+          createdAt
+          acknowledgedAt
+          content
+          tags
+          postedByContact: contactByPostedByContactId {
+            id
+            fullName
+            email
+          }
+        }
+      }
+    }
+    topicExclusive: topicByTopicIdExclusive {
+      id
+      name
+      messages: messagesByTopicId (
+        orderBy: CREATED_AT_DESC
+        condition: {
+          status: SENT
+        }
+      ) {
+        nodes {
+          id
+          createdAt
+          acknowledgedAt
+          content
+          tags
+          postedByContact: contactByPostedByContactId {
+            id
+            fullName
+            email
+          }
+        }
+      }
+    }
+  }
+}

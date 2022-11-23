@@ -1,0 +1,11 @@
+mutation RemoveAppUser(
+  $appUserId: String!
+  $confirmationCode: String!
+) {
+  removeAppUser(input: {
+    _appUserId: $appUserId
+    _confirmationCode: $confirmationCode
+  }) {
+    boolean
+  }
+}

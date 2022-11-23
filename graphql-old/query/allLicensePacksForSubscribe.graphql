@@ -1,0 +1,16 @@
+query AllLicensePacksForSubscribe(
+  $licensePackType: LicensePackType!
+) {
+  allLicensePacks(
+    condition: {
+      type: $licensePackType
+     	availability: PUBLISHED 
+    }
+  ) {
+    nodes {
+      id
+      key
+      name
+    }
+  }
+}

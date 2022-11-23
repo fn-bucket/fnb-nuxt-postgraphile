@@ -1,0 +1,32 @@
+query AllDevGames {
+  allDevGames
+  
+  allProdGames: allGames(
+    condition: { versionName: "base"}
+  ) {
+    nodes {
+      id
+      name
+      playKey
+      versionName
+      updatedAt
+      createdAt
+      settingConfigs: settingConfigsByGameId {
+        totalCount
+      }
+      scoringConfigs: scoringConfigsByGameId {
+        totalCount
+      }
+      versions: gamesByParentId {
+        nodes {
+          id
+          name
+          playKey
+          versionName
+          updatedAt
+          createdAt          
+        }
+      }
+    }
+  }
+}

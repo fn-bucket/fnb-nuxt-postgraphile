@@ -1,0 +1,14 @@
+mutation AddPatientClipboardWorksheets(
+  $patientIds: [String]!
+  $worksheetIds: [String]!
+) {
+  addPatientClipboardWorksheets(input: {
+    _patientIds: $patientIds
+    _worksheetIds: $worksheetIds
+  }) {
+    patientClipboardWorksheets {
+      patientId
+      worksheetId
+    }
+  }
+}

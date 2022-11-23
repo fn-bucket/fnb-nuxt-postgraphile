@@ -1,0 +1,21 @@
+mutation CreatePatientWeMoveAssignment(
+  $patientWeMoveAssignmentInfo: PatientWeMoveAssignmentInfoInput!
+) {
+  createPatientWeMoveAssignment(input: {
+    _patientWeMoveAssignmentInfo: $patientWeMoveAssignmentInfo
+  }) {
+    patientWeMoveAssignment {
+      id
+      assignedAt
+      assignedBy: appUserByAssignedByUserId {
+        id
+      	contact: contactByContactId {
+          id
+          firstName
+          lastName
+          email
+        }
+      }
+    }
+  }
+}

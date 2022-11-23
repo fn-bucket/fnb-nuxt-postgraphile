@@ -1,0 +1,13 @@
+mutation UpsertGame(
+  $gameInfo: GameInfoInput!
+) {
+  upsertGame(input: {
+    _gameInfo: $gameInfo
+  }) {
+    game {
+      id
+      name
+      playKey
+    }
+  }
+}

@@ -1,0 +1,41 @@
+query ErrorReports {
+  allErrorReports(
+    orderBy: LAST_REPORTED_AT_DESC
+  ) {
+    nodes {
+      id
+      operationName
+      status
+      firstReportedAt
+      lastReportedAt
+      observedCount
+      message
+      comment
+      variables
+      reportedBy: appUserByReportedByAppUserId {
+        id
+        username
+        appTenant: appTenantByAppTenantId {
+          id
+          name
+        }
+        contact: contactByContactId	{
+          id
+          fullName
+        }
+      }
+      reportedAs: appUserByReportedAsAppUserId {
+        id
+        username
+        appTenant: appTenantByAppTenantId {
+          id
+          name
+        }
+        contact: contactByContactId	{
+          id
+          fullName
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+query {
+  currentAppUser {
+    id
+    appTenant: appTenantByAppTenantId {
+      id
+      name
+    }
+    username
+    contact: contactByContactId {
+      id
+      firstName
+      lastName
+      email
+    }
+    permissions
+    licensesByAssignedToAppUserId {
+      nodes {
+        id
+        name
+      }
+    }
+  }
+}

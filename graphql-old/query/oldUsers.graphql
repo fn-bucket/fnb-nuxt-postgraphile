@@ -1,0 +1,22 @@
+query OldUsers {
+  allOldUsers (
+    orderBy: SUBSCRIPTION_STARTS_DESC
+  ) {
+    totalCount
+    nodes {
+      companyId
+      companyName
+      memberId
+      memberSince
+      subscriptionStarts
+      lastAccessed
+      scoreCount
+      recentScore
+      newLicense
+      email
+      action
+      firstName
+      lastName
+    }
+  }
+}

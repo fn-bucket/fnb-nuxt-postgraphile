@@ -1,0 +1,29 @@
+query GameSessionSearchConfig(
+  $appTenantId: String
+) {
+  gameSessionSearchConfig(_appTenantId: $appTenantId) {
+    appUsers {
+      id
+      recoveryEmail
+      contact: contactByContactId {
+        id
+        fullName
+        firstName
+        lastName
+      }
+    }
+    appTenants {
+      id
+      name
+    }
+    gameSessionTypes
+    games {
+      id
+      name
+      versionName
+      playKey
+    }
+    minStartDate
+    maxEndDate
+  }
+}

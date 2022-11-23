@@ -1,0 +1,15 @@
+mutation DisablePresetGameConfigurations (
+  $libraryId: String!
+) {
+  disablePresetGameConfigurations(input: {
+    _libraryId: $libraryId
+  }) {
+    appTenantLibrarySetting {
+      id
+      appTenantId
+      libraryId
+      presetsEnabled
+      customConfigurationEnabled
+    }
+  }
+}

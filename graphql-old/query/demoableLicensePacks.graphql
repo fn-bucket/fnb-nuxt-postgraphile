@@ -1,0 +1,11 @@
+query {
+  demoableLicensePacks {
+    nodes {
+      id
+      key
+      name
+      price
+      renewalFrequency
+    }
+  }
+}

@@ -1,0 +1,14 @@
+mutation UpdateAppTenantSetting (
+  $key: String!
+  $value: String!
+) {
+  updateAppTenantSetting(input: {
+    _key: $key
+    _value: $value
+  }) {
+    appTenant {
+      id
+      name
+    }
+  }
+}

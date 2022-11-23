@@ -1,0 +1,10 @@
+mutation CloneLicensePack($id: String!) {
+  cloneLicensePack(input: { _id: $id }) {
+    licensePack {
+      id
+      key
+      name
+      availability
+    }
+  }
+}

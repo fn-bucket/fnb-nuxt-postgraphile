@@ -1,0 +1,9 @@
+mutation DeleteHelpTopic(
+  $helpTopicId: String!
+) {
+  deleteHelpTopic(input: {
+    _helpTopicId: $helpTopicId
+  }) {
+    boolean
+  }
+}

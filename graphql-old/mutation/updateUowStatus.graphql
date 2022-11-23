@@ -1,0 +1,14 @@
+mutation UpdateUowStatus(
+  $uowId: String!
+  $status: UowStatusType!
+) {
+  updateUowStatus(input: {
+    _uowId: $uowId
+    _status: $status
+  }) {
+    uow {
+      id
+      status
+    }
+  }
+}

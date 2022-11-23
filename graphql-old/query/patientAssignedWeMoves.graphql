@@ -1,0 +1,29 @@
+query PatientAssignedWeMoves(
+  $patientId: String!
+) {
+  patientById(id: $patientId) {
+    id
+    contact: contactByContactId {
+      id
+      firstName
+      lastName
+      email
+      cellPhone
+      officePhone
+    }
+    assignedWeMoves: patientWeMoveAssignmentsByPatientId(
+      condition: {
+        status: ACTIVE
+      }
+    ) {
+      nodes {
+        id
+        assignedAt
+        weMove: weMoveByWeMoveId {
+          id
+          name
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+mutation UnvoidLicenses(
+  $licenseIds: [String]!
+) {
+  unvoidLicenses(input: {
+    _licenseIds: $licenseIds
+    
+  }) {
+    boolean
+  }
+}

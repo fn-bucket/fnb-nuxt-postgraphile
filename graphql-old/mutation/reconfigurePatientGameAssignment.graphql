@@ -1,0 +1,21 @@
+mutation ReconfigurePatientGameAssignment(
+  $patientGameAssignmentInfo: PatientGameAssignmentInfoInput!
+) {
+  reconfigurePatientGameAssignment(input: {
+    _patientGameAssignmentInfo: $patientGameAssignmentInfo
+  }) {
+    patientGameAssignment {
+      id
+      assignedAt
+      assignedBy: appUserByAssignedByUserId {
+        id
+      	contact: contactByContactId {
+          id
+          firstName
+          lastName
+          email
+        }
+      }
+    }
+  }
+}

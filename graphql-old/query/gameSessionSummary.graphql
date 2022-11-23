@@ -1,0 +1,15 @@
+query GameSessionSummary{
+  gameSessionSummary {
+    nodes {
+      game {
+        id
+        name
+      }
+      summaries {
+        sessionType
+        sessionCount
+        scoreCount
+      }
+    }
+  }
+}

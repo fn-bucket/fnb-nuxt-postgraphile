@@ -1,0 +1,13 @@
+query ActiveSupportedLanguages {
+  activeSupportedLanguages: allSupportedLanguages(
+    condition: {
+      inactive: false
+    }
+  ) {
+    nodes {
+      id
+      name
+      inactive
+    }
+  }
+}

@@ -1,0 +1,19 @@
+query CurrentAnchorSubscriptions {
+  currentAnchorSubscriptions: allAppTenantSubscriptions(condition: {
+    isAnchorSubscription: true
+    inactive: false
+  }) {
+    nodes {
+      id
+      licensePack: licensePackByLicensePackId {
+        id
+        name
+        key
+      }
+      appTenant: appTenantByAppTenantId {
+        id
+        name
+      }
+    }
+  }
+}

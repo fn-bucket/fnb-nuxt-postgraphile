@@ -1,0 +1,9 @@
+query AllAppTenants {
+  allAppTenants {
+    nodes {
+      id
+      name
+      type
+    }
+  }
+}

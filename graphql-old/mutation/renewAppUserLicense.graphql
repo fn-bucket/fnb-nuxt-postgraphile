@@ -1,0 +1,14 @@
+mutation RenewAppUserLicense(
+  $appUserId: String!
+){
+	renewAppUserLicense(input: {
+    _appUserId: $appUserId
+  }) {
+    license {
+      id
+      licenseTypeKey
+      status
+      expirationDate
+    }
+  }
+}

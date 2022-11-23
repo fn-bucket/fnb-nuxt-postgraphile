@@ -1,0 +1,20 @@
+query AppTenantLibrarySettings {
+  currentAppTenant {
+    id
+    name
+    libraries {
+      nodes {
+        id
+        name
+        appTenantLibrarySettings: appTenantLibrarySettingsByLibraryId {
+          nodes {
+            id
+            libraryId
+            presetsEnabled
+            customConfigurationEnabled
+          }
+        }
+      }
+    }
+  }
+}

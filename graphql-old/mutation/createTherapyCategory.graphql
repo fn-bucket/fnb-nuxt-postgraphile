@@ -1,0 +1,8 @@
+mutation createTherapyCategory($name: String!) {
+  createTherapyCategory(input: { _therapyCategoryInfo: { name: $name } }) {
+    therapyCategory {
+      id
+      name
+    }
+  }
+}

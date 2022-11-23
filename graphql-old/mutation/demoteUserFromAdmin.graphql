@@ -1,0 +1,14 @@
+mutation DemoteUserFromAdmin(
+  $appUserId: String!
+){
+  demoteUserFromAdmin(input: {
+    _appUserId: $appUserId
+  }) {
+    appUserAuth0Info {
+      appUserId
+      appRole
+      permissions
+      appTenantId
+    }
+  }
+}

@@ -1,0 +1,111 @@
+query CurrentPatient {
+  currentPatient {
+    id
+    contact: contactByContactId {
+      id
+      createdAt
+      fullName
+    }
+    dashboardSummary {
+      currentStreak
+      minutesPlayedLast30Days
+      activitiesCompleteLast30Days
+      completedPlaylistsLast30Days
+    }
+    gamePlayList: gamePlayListByPatientId {
+      id
+      name
+      entries: gamePlayListEntriesByGamePlayListId (orderBy: ORDINAL_ASC) {
+        nodes {
+          id
+          ordinal
+          gameConfiguration: gameConfigurationByGameConfigurationId {
+          	...gameConfiguration5       
+          }
+          patientGameAssignment: patientGameAssignmentByPatientGameAssignmentId {
+            id
+            status
+            assignedAt
+            completionResults {
+              nodes {
+                sessionDate
+                dayAbbreviation
+                completed
+                scoreCount
+              }
+            }
+            assignedBy: appUserByAssignedByUserId {
+              id
+              contact: contactByContactId {
+                id
+                firstName
+                lastName
+                email
+              }
+            }
+            gameConfiguration: gameConfigurationByGameConfigurationId {
+              ...gameConfiguration5
+            }
+            game: gameByGameId {
+              id
+              name
+              playKey
+              versionName
+              parentId
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment gameConfiguration5 on GameConfiguration {
+  id
+  name
+  createdAt
+  modality
+  canEdit
+  isPssb
+  isReducedStimulus
+  tags
+  prePlayMessage
+  version
+  completionScoreCount
+  backgroundColor
+  targetColor
+  game: gameByGameId {
+    id
+    name
+    playKey
+    versionName
+    parentId
+  }
+  levels: levelsByGameConfigurationId {
+    nodes {
+      id
+      levelNumber
+      completionScore
+      completionCriteria
+      settings: gameLevelSettingsByLevelId {
+        nodes {
+          id
+          appTenantId
+          settingConfig: settingConfigBySettingConfigId {
+            id
+            name
+            displayName
+            ordinal
+            type
+            uiType
+            acceptedValues {
+              label
+              value
+            }
+          }
+          value
+        }
+      }
+    }
+  }  
+}

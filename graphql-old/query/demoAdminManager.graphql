@@ -1,0 +1,43 @@
+query DemoAdminManager {
+  demoAdminUsers {
+    nodes {
+      id
+      username
+      recoveryEmail
+      permissionKey
+      permissions
+      contact: contactByContactId {
+        id
+        firstName
+        lastName
+        email
+        fullName
+      }
+      appTenant: appTenantByAppTenantId {
+        id
+        name
+      }      
+    }
+  }
+  
+  eligibleDemoAdminCandidates {
+    nodes {
+      id
+      username
+      recoveryEmail
+      permissionKey
+      permissions
+      contact: contactByContactId {
+        id
+        firstName
+        lastName
+        email
+        fullName
+      }
+      appTenant: appTenantByAppTenantId {
+        id
+        name
+      }      
+    }
+  } 
+}

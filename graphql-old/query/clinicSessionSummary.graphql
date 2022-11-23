@@ -1,0 +1,15 @@
+query	{
+  clinicSessionSummary {
+    nodes {
+      appTenant {
+        id
+        name
+      }
+      summaries {
+        sessionType
+        scoreCount
+        sessionCount        
+      }
+    }
+  }
+}

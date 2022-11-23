@@ -1,0 +1,231 @@
+query PatientById(
+  $id: String!
+) {
+  patientById(id: $id) {
+    id
+    createdDate
+    deactivatedDate
+    appUserId
+    appTenantId
+    isOd
+    isOs
+    appUser: appUserByAppUserId {
+			id
+      recoveryEmail
+      inactive
+      extAuthId
+      extAuthBlocked
+      licensingStatus
+      auth0Info
+    	licenses: activeLicenses {
+        nodes {
+          id
+          name
+          licenseTypeKey
+          expirationDate
+          createdAt     
+          inactive     
+        }
+      }
+      linkedOldUser: oldUserByAppUserId {
+        memberId
+        firstName
+        lastName
+        email
+      }
+    }
+    contact: contactByContactId {
+      id
+      firstName
+      lastName
+      email
+      cellPhone
+      officePhone
+    }
+    licensingStatus {
+      upgradeOption {
+        name
+        key
+      }
+      currentLicense {
+        id
+        createdAt
+        licenseTypeKey
+        expirationDate
+        inactive
+        name
+      }
+    }
+    gamePlayList: gamePlayListByPatientId {
+      id
+      name
+      entries: gamePlayListEntriesByGamePlayListId (orderBy: ORDINAL_ASC) {
+        nodes {
+          id
+          ordinal
+          gameConfiguration: gameConfigurationByGameConfigurationId {
+          	...gameConfiguration7     
+          }
+          patientGameAssignment: patientGameAssignmentByPatientGameAssignmentId {
+            id
+            status
+            assignedAt
+            completionResults {
+              nodes {
+                sessionDate
+                dayAbbreviation
+                completed
+                scoreCount
+              }
+            }
+            assignedBy: appUserByAssignedByUserId {
+              id
+              contact: contactByContactId {
+                id
+                firstName
+                lastName
+                email
+              }
+            }
+            gameConfiguration: gameConfigurationByGameConfigurationId {
+              ...gameConfiguration7
+            }
+            game: gameByGameId {
+              id
+              name
+              playKey
+              versionName
+              parentId
+            }
+          }
+        }
+      }
+    }
+    clipboardGames {
+      nodes {
+        id
+        name
+        playKey
+        versionName
+      }
+    }
+    clipboardWeMoves {
+      nodes {
+        id
+        name
+      }
+    }
+    clipboardWorksheets {
+      nodes {
+        id
+        name
+      }
+    }
+  	assignedGamesSummary {
+      nodes{
+        sessionDate
+        dayAbbreviation
+        completeCount
+        assignedCount
+        evaluation        
+      }
+    }
+    assignedWeMoves: patientWeMoveAssignmentsByPatientId(
+      condition: {
+        status: ACTIVE
+      }
+    ) {
+      nodes {
+        id
+        assignedAt
+        viewedAt
+        weMove: weMoveByWeMoveId {
+          id
+          name
+          videoUrl
+        }
+      }
+    }
+    assignedWorksheets: patientWorksheetAssignmentsByPatientId(
+      condition: {
+        status: ACTIVE
+      }
+    ) {
+      nodes {
+        id
+        assignedAt
+        downloadedAt
+        worksheet: worksheetByWorksheetId {
+          id
+          name
+          downloadUrl
+        }
+      }
+    }
+    therapyCategories {
+      nodes {
+        id
+        name
+      }
+    }
+  }
+
+  allTherapyCategories {
+    nodes {
+      id
+      name
+    }
+  }
+}
+
+fragment gameConfiguration7 on GameConfiguration {
+  id
+  name
+  version
+  completionScoreCount
+  createdAt
+  modality
+  canEdit
+  isPssb
+  isReducedStimulus
+  tags
+  prePlayMessage
+  backgroundColor
+  targetColor
+  highScore
+  lastScore
+  game: gameByGameId {
+    id
+    name
+    playKey
+    versionName
+    parentId
+  }
+  levels: levelsByGameConfigurationId {
+    nodes {
+      id
+      levelNumber
+      completionScore
+      completionCriteria
+      settings: gameLevelSettingsByLevelId {
+        nodes {
+          id
+          appTenantId
+          settingConfig: settingConfigBySettingConfigId {
+            id
+            name
+            displayName
+            ordinal
+            type
+            uiType
+            acceptedValues {
+              label
+              value
+            }
+          }
+          value
+        }
+      }
+    }
+  }  
+}

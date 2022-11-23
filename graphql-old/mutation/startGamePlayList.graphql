@@ -1,0 +1,17 @@
+mutation StartGamePlayList (
+  $gamePlayListId: String!
+  $gameSessionType: GameSessionType!
+) {
+  startGamePlayList (input: {
+    _gamePlayListId: $gamePlayListId
+    _gameSessionType: $gameSessionType
+  }) {
+    getGameplaySessionResult {
+      gameSession {
+        id
+      }
+      gameplayUrl
+      sessionTestUrl
+    }
+  }
+}

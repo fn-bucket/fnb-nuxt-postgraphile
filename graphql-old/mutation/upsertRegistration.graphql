@@ -1,0 +1,11 @@
+mutation UpsertRegistration(
+  $registrationInfo: RegistrationInfoInput!
+) {
+  upsertRegistration(
+    input: {
+      _registrationInfo: $registrationInfo
+    }
+  ) {
+    json
+  }
+}

@@ -1,0 +1,21 @@
+query PatientClipboardWorksheets(
+  $patientId: String!
+) {
+  patientById(id: $patientId) {
+    id
+    contact: contactByContactId {
+      id
+      firstName
+      lastName
+      email
+      cellPhone
+      officePhone
+    }
+    clipboardWorksheets {
+      nodes {
+        id
+        name
+      }
+    }
+  }
+}

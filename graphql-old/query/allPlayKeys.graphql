@@ -1,0 +1,9 @@
+query AllPlayKeys {
+  allGames {
+    nodes {
+      id
+      name
+      playKey
+    }
+  }
+}

@@ -1,0 +1,9 @@
+mutation DeleteGameConfiguration (
+  $gameConfigurationId: String
+) {
+  deleteGameConfiguration(input: {
+    _id: $gameConfigurationId
+  }) {
+    boolean
+  }
+}

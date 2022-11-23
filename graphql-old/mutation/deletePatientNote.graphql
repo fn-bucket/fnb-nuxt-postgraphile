@@ -1,0 +1,9 @@
+mutation DeletePatientNote(
+  $patientNoteId: String!
+) {
+  deletePatientNote(input: {
+    _patientNoteId: $patientNoteId
+  }) {
+    boolean
+  }
+}

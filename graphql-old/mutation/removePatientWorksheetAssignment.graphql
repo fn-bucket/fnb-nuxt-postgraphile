@@ -1,0 +1,23 @@
+mutation RemovePatientWorksheetAssignment(
+  $patientWorksheetAssignmentId: String!
+) {
+  removeWorksheetAssignment(input: {
+    _patientWorksheetAssignmentId: $patientWorksheetAssignmentId
+  }) {
+    patientWorksheetAssignment {
+      id
+      assignedAt
+      unassignedAt
+      status
+      assignedBy: appUserByAssignedByUserId {
+        id
+      	contact: contactByContactId {
+          id
+          firstName
+          lastName
+          email
+        }
+      }
+    }
+  }
+}

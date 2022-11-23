@@ -1,0 +1,14 @@
+mutation AddressErrorReport(
+  $errorReportId: String!
+) {
+	addressErrorReport(input: {
+    _errorReportId: $errorReportId
+  }) {
+    errorReport {
+      id
+      status
+      message
+      variables
+    }
+  }
+}

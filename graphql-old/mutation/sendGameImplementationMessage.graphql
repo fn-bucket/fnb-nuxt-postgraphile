@@ -1,0 +1,14 @@
+mutation SendGameImplementationMessage(
+  $gameId: String!
+  $content: String!
+) {
+  sendGameImplementationMessage(input: {
+    _gameId: $gameId
+    _content: $content
+  }) {
+    message {
+      id
+      content
+    }
+  }
+}

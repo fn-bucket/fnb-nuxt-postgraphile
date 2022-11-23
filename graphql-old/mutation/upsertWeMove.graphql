@@ -1,0 +1,28 @@
+mutation UpsertWeMove(
+  $id: String
+  $name: String!
+  $key: String!
+  $videoUrl: String
+  $description: String
+  $therapyCategories: [String]!
+) {
+  upsertWeMove(input: {	
+    _weMoveInfo: {
+      id: $id
+      name: $name
+      key: $key
+      videoUrl: $videoUrl
+      description: $description
+      therapyCategories: $therapyCategories
+    } 
+  }) {
+    weMove {
+      id
+      name
+      key
+      videoUrl
+      description
+      createdAt
+    }
+  }
+}

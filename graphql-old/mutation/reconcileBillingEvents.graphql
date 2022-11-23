@@ -1,0 +1,25 @@
+mutation ReconcileBillingEvents {
+	reconcileBillingEvents(input:{}) {
+    payments {
+      id
+      createdAt
+      billingDate
+      paymentDate
+      amount
+      status
+      appTenantSubscription:appTenantSubscriptionByAppTenantSubscriptionId {
+        id
+        licensePack: licensePackByLicensePackId {
+          id
+          key
+        }
+      }
+      paymentMethod: paymentMethodByPaymentMethodId {
+        id
+        identifier
+        externalIdentifier
+        name
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+
+mutation MoveLicensesToSubscription(
+  $licenseIds: [String]!
+  $appTenantSubscriptionId: String!
+) {
+  moveLicensesToSubscription(input: {
+    _licenseIds: $licenseIds
+    _appTenantSubscriptionId: $appTenantSubscriptionId
+  }) {
+    licenses {
+      id
+      licenseTypeKey
+    }
+  }
+}

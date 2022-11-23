@@ -1,0 +1,15 @@
+query HelpTopicById(
+  $helpTopicId: String!
+) {
+  helpTopicById(id: $helpTopicId) {
+    id
+    createdAt
+    status
+    name
+    summary
+    content
+    videoUrl
+    downloadUrl
+    tags
+  }
+}

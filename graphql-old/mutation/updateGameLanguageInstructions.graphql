@@ -1,0 +1,18 @@
+mutation UpdateGameLanguageInstructions(
+  $gameId: String!
+  $languageId: String!
+  $instructions: String!
+) {
+  updateGameLanguageInstructions(input: {
+    _gameId: $gameId
+    _languageId: $languageId
+    _instructions: $instructions
+  }) {
+    game {
+      id
+      name
+      playKey
+      languageTokens
+    }
+  }
+}

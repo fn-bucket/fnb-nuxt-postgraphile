@@ -1,0 +1,54 @@
+mutation UpsertLicensePack(
+  $licensePackId: String
+  $key: String
+  $name: String
+  $type: LicensePackType
+  $renewalFrequency: RenewalFrequency
+  $expirationInterval: ExpirationInterval
+  $expirationIntervalMultiplier: Int
+  $explicitExpirationDate: Date
+  $price: BigFloat
+  $couponCode: String
+  $availableAddOnKeys: [String]
+  $upgradeConfig: UpgradeConfigInput
+  $licenseTypeInfos: [LicensePackLicenseTypeInfoInput]
+  $isPublicOffering: Boolean
+  $implicitAddOnKeys: [String]
+) {
+  upsertLicensePack(
+    input: {
+      _licensePackInfo: {
+        id: $licensePackId
+        key: $key
+        name: $name
+        renewalFrequency: $renewalFrequency
+        expirationInterval: $expirationInterval
+        expirationIntervalMultiplier: $expirationIntervalMultiplier
+        explicitExpirationDate: $explicitExpirationDate
+        price: $price
+        availableAddOnKeys: $availableAddOnKeys
+        couponCode: $couponCode
+        upgradeConfig: $upgradeConfig
+        licenseTypeInfos: $licenseTypeInfos
+        isPublicOffering: $isPublicOffering
+        implicitAddOnKeys: $implicitAddOnKeys
+        type: $type
+      }
+    }
+  ) {
+    licensePack {
+      id
+      key
+      name
+      type
+      renewalFrequency
+      expirationInterval
+      expirationIntervalMultiplier
+      explicitExpirationDate
+      price
+      availableAddOnKeys
+      couponCode
+      isPublicOffering
+    }
+  }
+}

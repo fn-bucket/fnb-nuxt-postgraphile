@@ -1,0 +1,14 @@
+mutation ChangeLicenseType(
+  $licenseIds: [String]!
+  $licenseTypeKey: String!
+) {
+  changeLicenseType(input: {
+    _licenseIds: $licenseIds
+    _licenseTypeKey: $licenseTypeKey
+  }) {
+    licenses {
+      id
+      licenseTypeKey
+    }
+  }
+}

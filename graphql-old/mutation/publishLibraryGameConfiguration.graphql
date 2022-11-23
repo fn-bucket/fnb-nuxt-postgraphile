@@ -1,0 +1,15 @@
+mutation PublishGameConfiguration (
+  $libraryId: String!
+  $gameConfigurationId: String
+) {
+  publishGameConfiguration(input: {
+    _libraryId: $libraryId
+    _gameConfigurationId: $gameConfigurationId
+  }) {
+    gameConfiguration {
+      id
+      libraryId
+      type
+    }
+  }
+}

@@ -1,0 +1,79 @@
+query SearchAppTenants(
+  $type: AppTenantType
+  $searchString: String
+) {
+  appTenantSearch(_options: {
+    type: $type
+    searchString: $searchString
+  }) {
+    nodes {
+      id
+      parentAppTenantId
+      name
+      type
+      paymentStatusSummary {
+        status
+        pastduePayments {
+          id
+          status
+          amount
+          billingDate
+        }
+        scheduledPayments {
+          id
+          status
+          amount
+          billingDate
+        }
+      }
+      anchorSubscription: appTenantSubscriptionByAnchorSubscriptionId {
+        id
+        licensePack: licensePackByLicensePackId {
+          id
+          name
+          key
+          type
+          availability
+        }
+        payments: paymentsByAppTenantSubscriptionId {
+          nodes	{
+            id
+            billingDate
+            paymentDate
+            canceledDate
+            amount
+            status
+          }
+        }        
+      }
+      appTenantSubscriptions: activeSubscriptions {
+        nodes {
+          id
+          licensePack: licensePackByLicensePackId {
+            id
+            name
+            key
+            type
+          }
+          payments: paymentsByAppTenantSubscriptionId {
+            nodes	{
+              id
+              billingDate
+              paymentDate
+              canceledDate
+              amount
+              status
+            }
+          }
+        }
+      }
+      children: appTenantsByParentAppTenantId {
+        nodes {
+          id
+          parentAppTenantId
+          name
+        }
+      }      
+    }
+  }
+}

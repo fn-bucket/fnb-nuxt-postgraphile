@@ -1,0 +1,14 @@
+mutation PromoteUserToDemoAdmin(
+  $appUserId: String!
+){
+  promoteUserToDemoAdmin(input: {
+    _appUserId: $appUserId
+  }) {
+    appUserAuth0Info {
+      appUserId
+      appRole
+      permissions
+      appTenantId
+    }
+  }
+}

@@ -1,0 +1,13 @@
+query AllApplications {
+  allApplications {
+    nodes {
+      key
+      name
+      licenseTypes: licenseTypesByApplicationKey {
+        nodes {
+          key
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+query AuthenticateBootstrap(
+  $username: String!
+) {
+  authenticateBootstrap(_username: $username) 
+}

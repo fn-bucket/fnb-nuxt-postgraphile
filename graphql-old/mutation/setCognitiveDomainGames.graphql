@@ -1,0 +1,14 @@
+mutation SetCognitiveDomainGames(
+  $cognitiveDomainId: String!
+  $gameIds: [String]!
+) {
+  setTherapyCategoryGames(input: {
+    _cognitiveDomainId: $cognitiveDomainId
+    _gameIds: $gameIds
+  }) {
+    gameTherapyCategories {
+      gameId
+      cognitiveDomainId
+    }
+  }
+}

@@ -1,0 +1,22 @@
+query {
+  landingPageData {
+    libraries {
+      id
+      name
+      benefits {
+        id
+        name
+        contentSlugs {
+          id
+          key
+          content
+        }
+      }
+      contentSlugs {
+        id
+        key
+        content
+      }
+    }
+  }
+}

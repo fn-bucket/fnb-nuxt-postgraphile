@@ -1,0 +1,9 @@
+mutation ClearPatientClipboardGames(
+  $patientId: String!
+) {
+  clearPatientClipboardGames(input: {
+    _patientId: $patientId
+  }) {
+    boolean
+  }
+}

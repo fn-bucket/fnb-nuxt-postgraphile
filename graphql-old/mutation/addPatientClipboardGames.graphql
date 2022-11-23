@@ -1,0 +1,14 @@
+mutation AddPatientClipboardGames(
+  $patientIds: [String]!
+  $gameIds: [String]!
+) {
+  addPatientClipboardGames(input: {
+    _patientIds: $patientIds
+    _gameIds: $gameIds
+  }) {
+    patientClipboardGames {
+      patientId
+      gameId
+    }
+  }
+}

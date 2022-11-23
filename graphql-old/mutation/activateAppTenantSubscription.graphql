@@ -1,0 +1,12 @@
+mutation ActivateAppTenantSubscription(
+  $appTenantSubscriptionId: String!
+) {
+  activateAppTenantSubscription(input: {
+    _appTenantSubscriptionId: $appTenantSubscriptionId
+  }) {
+    appTenantSubscription {
+      id
+			inactive
+    }
+  }
+}

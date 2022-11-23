@@ -1,0 +1,11 @@
+query CurrentActiveEula {
+  allEulas(condition: {
+    isInactive: false
+  }) {
+    nodes {
+      id
+      createdAt
+      content
+    }
+  }
+}

@@ -1,0 +1,9 @@
+mutation DeployActivityVersion (
+  $playKey: String!
+  $versionIdentifier: String!
+) {
+  deployActivityVersion(
+    playKey: $playKey
+    versionIdentifier: $versionIdentifier
+  )
+}

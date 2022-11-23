@@ -1,0 +1,16 @@
+mutation PromoteUserToGameLanguageManager(
+  $appUserId: String!
+  $languageId: String!
+){
+  promoteUserToGameLanguageManager(input: {
+    _appUserId: $appUserId
+    _languageId: $languageId
+  }) {
+    appUserAuth0Info {
+      appUserId
+      appRole
+      permissions
+      appTenantId
+    }
+  }
+}

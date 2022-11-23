@@ -1,0 +1,17 @@
+mutation SetPatientOdOs (
+  $patientId: String!
+  $isOd: Boolean!
+  $isOs: Boolean
+) {
+  setPatientOdOs(input: {
+    _patientId: $patientId
+    _isOd: $isOd
+    _isOs: $isOs
+  }) {
+    patient {
+      id
+      isOd
+      isOs
+    }
+  }
+}

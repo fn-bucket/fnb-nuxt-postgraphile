@@ -1,0 +1,12 @@
+mutation DectivateLicense(
+  $licenseId: String!
+) {
+  deactivateLicense(input: {
+    _licenseId: $licenseId
+  }) {
+    license {
+      id
+			inactive
+    }
+  }
+}

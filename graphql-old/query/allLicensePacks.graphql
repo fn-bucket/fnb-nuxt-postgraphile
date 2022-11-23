@@ -1,0 +1,76 @@
+query {
+  allLicenseTypes {
+    nodes {
+      key
+      permissionKey
+      applicationKey
+      name
+    }
+  }
+
+  allLicensePacks {
+    nodes {
+      id
+      key
+      name
+      price
+      renewalFrequency
+      expiresAtRenewal
+      type
+      availability
+      couponCode
+      allowedActions
+      upgradeConfig {
+        upgradePaths {
+          licensePackKey
+          licenseTypeUpgrades {
+            sourceLicenseTypeKey
+            targetLicenseTypeKey
+          }
+        }
+      }
+      availableAddOnKeys
+      candidateAddOnKeys
+      candidateUpgradePathKeys
+      candidateLicenseTypeKeys
+      publishedAddOns {
+        nodes {
+          id
+          key
+          name
+          type
+        }
+      }
+      draftAddOns {
+        nodes {
+          id
+          key
+          name
+          type
+        }
+      }
+      discontinuedAddOns {
+        nodes {
+          id
+          key
+          name
+          type
+        }
+      }
+      licensePackLicenseTypes: licensePackLicenseTypesByLicensePackId {
+        nodes {
+          id
+          licenseType: licenseTypeByLicenseTypeKey {
+            key
+            name
+          }
+          licenseTypeKey
+          licenseCount
+          assignUponSubscription
+          unlimitedProvision
+          expirationInterval
+        }
+      }
+    }
+  }
+}

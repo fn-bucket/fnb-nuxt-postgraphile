@@ -1,0 +1,9 @@
+mutation ReactivateAppUser(
+  $appUserId: String!
+) {
+  reactivateAppUser(input: {
+    _appUserId: $appUserId
+  }) {
+    json
+  }
+}

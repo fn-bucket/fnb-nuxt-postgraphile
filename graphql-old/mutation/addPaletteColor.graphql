@@ -1,0 +1,17 @@
+mutation AddPaletteColor (
+  $label: String!
+  $hexValue: String!
+) {
+  addPaletteColor(input: {
+    _paletteColorInfo: {
+      label: $label
+      hexValue: $hexValue
+    }
+  }) {
+    paletteColor {
+      id
+      label
+      hexValue
+    }
+  }
+}

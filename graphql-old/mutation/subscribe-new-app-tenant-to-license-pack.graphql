@@ -1,0 +1,16 @@
+mutation SubscribeNewAppTenantToLicensePack(
+  $licensePackKey: String!
+  $newAppTenantInfo: NewAppTenantInfoInput!
+) {
+  subscribeToLicensePackNewTenant(
+    input: {
+      _licensePackKey: $licensePackKey
+      _newTenantInfo: $newAppTenantInfo
+    }
+  ) {
+    appTenantSubscription {
+      id
+      lastRenewalDate
+    }
+  }
+}

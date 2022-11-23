@@ -1,0 +1,10 @@
+mutation DiscontinueLicensePack($id: String!) {
+  discontinueLicensePack(input: { _id: $id }) {
+    licensePack {
+      id
+      key
+      name
+      availability
+    }
+  }
+}

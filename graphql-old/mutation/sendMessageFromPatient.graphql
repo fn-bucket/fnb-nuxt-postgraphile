@@ -1,0 +1,12 @@
+mutation SendMessageFromPatient(
+  $patientMessageInfo: PatientMessageInfoInput!
+) {
+  sendMessageFromPatient(input: {
+    _patientMessageInfo: $patientMessageInfo
+  }) {
+    message {
+      id
+      content
+    }
+  }
+}

@@ -1,0 +1,9 @@
+mutation RaiseException(
+  $msg: String
+) {
+  raiseException(input: {
+    _msg: $msg
+  }) {
+    clientMutationId
+  }
+}
