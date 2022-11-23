@@ -1,5 +1,0 @@
-mutation DeleteGame($id: String!) {
-  deleteGame(input: { _gameId: $id }) {
-    clientMutationId
-  }
-}

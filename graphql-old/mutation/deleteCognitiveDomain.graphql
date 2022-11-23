@@ -1,9 +1,0 @@
-mutation DeleteCognitiveDomain(
-  $cognitiveDomainId: String
-) {
-  deleteCognitiveDomain(input: {
-    _cognitiveDomainId: $cognitiveDomainId
-  }) {
-    clientMutationId
-  }
-}

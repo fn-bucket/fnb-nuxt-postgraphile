@@ -1,7 +1,0 @@
-query SendPasswordChangeEmail(
-  $appUserId: String!
-) {
-  sendPasswordChangeEmail(_appUserId: $appUserId) {
-    appUserId
-  }
-}

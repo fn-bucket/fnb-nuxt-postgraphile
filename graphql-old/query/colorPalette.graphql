@@ -1,9 +1,0 @@
-query ColorPalette {
-  allPaletteColors {
-    nodes {
-      id
-      label
-      hexValue
-    }
-  }
-}

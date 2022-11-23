@@ -1,9 +1,0 @@
-mutation DeleteAppTenantGroup (
-  $appTenantGroupId: String!
-) {
-  deleteAppTenantGroup(input: {
-    _appTenantGroupId: $appTenantGroupId
-  }) {
-    boolean
-  }
-}

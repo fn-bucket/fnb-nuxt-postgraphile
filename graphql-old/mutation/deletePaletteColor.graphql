@@ -1,9 +1,0 @@
-mutation DeletePaletteColor (
-  $paletteColorId: String!
-) {
-  deletePaletteColor(input: {
-    _paletteColorId: $paletteColorId
-  }) {
-    boolean
-  }
-}

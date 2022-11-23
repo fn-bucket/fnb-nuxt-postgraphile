@@ -1,9 +1,0 @@
-mutation DeleteActivityVersion(
-  $playKey: String!
-  $versionIdentifier: String!
-){
-  deleteActivityVersion(
-    playKey: $playKey
-    versionIdentifier: $versionIdentifier
-  )
-}

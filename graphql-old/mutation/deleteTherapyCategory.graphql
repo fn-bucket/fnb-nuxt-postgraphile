@@ -1,5 +1,0 @@
-mutation DeleteTherapyCategory($therapyCategoryId: String!) {
-  deleteTherapyCategory(input: { _therapyCategoryId: $therapyCategoryId }) {
-    clientMutationId
-  }
-}

@@ -1,9 +1,0 @@
-mutation UnpublishLicensePack($id: String!) {
-  unpublishLicensePack(input: { _id: $id }) {
-    licensePack {
-      id
-      key
-      name
-    }
-  }
-}

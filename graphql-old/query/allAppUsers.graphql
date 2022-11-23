@@ -1,8 +1,0 @@
-query {
-  allAppUsers {
-    nodes {
-      id
-      username
-    }
-  }
-}

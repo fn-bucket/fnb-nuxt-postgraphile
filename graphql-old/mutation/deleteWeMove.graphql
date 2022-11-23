@@ -1,9 +1,0 @@
-mutation DeleteWeMove (
-  $id: String!
-) {
-  deleteWeMove(input: {
-    _id: $id
-  }) {
-    boolean
-  }
-}

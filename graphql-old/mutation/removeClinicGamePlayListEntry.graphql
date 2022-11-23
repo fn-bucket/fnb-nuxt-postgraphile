@@ -1,9 +1,0 @@
-mutation DeleteClinicGamePlayListEntry(
-  $id: String!
-) {
-  deleteClinicGamePlaylistEntry(input: {
-    _id: $id
-  }) {
-    boolean
-  }
-}
