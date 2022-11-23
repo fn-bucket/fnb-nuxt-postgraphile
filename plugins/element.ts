@@ -1,7 +1,6 @@
 import { ID_INJECTION_KEY } from "element-plus";
 import element from 'element-plus'
-// import 'element-plus/es/components/table/style/css'
-// import 'element-plus/es/components/select/style/css'
+import 'element-plus/dist/index.css'
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(element)
