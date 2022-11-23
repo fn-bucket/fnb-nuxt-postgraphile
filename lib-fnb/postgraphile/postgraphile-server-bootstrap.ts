@@ -1,7 +1,10 @@
 import {postgraphile} from 'postgraphile'
 const DATABASE_URL = process.env.DATABASE_URL || 'postgres://postgres:1234@0.0.0.0/fnb'
-const schemas = 'auth_bootstrap,app,app_fn,auth_fn'.split(',')
+const schemas = 'auth_bootstrap,app,auth_fn'.split(',')
 
+// THIS CONFIGURATION IS MEANT TO SERVE UP A LIST OF DUMMY USERS
+// AND TO ALLOW LOGIN WITH NO PASSWORD
+// IT SHOULD BE REPLACED, OBVIOUSLY
 export default postgraphile(DATABASE_URL, schemas, {
   watchPg: true, // automatic reload when database changes
   graphiql: true, // for dev
