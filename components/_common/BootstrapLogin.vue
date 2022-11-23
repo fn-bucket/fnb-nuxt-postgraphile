@@ -1,4 +1,6 @@
 <template>
+  <hr>
+  <h3>Select a user and login - no password required for bootstrap configuration</h3>
   <select 
     name="appUser" 
     id="appUser" 
@@ -14,6 +16,7 @@
   </select> 
   <button @click="handleLogin">Login</button>
   <button @click="handleLogout">Logout</button>
+  <hr>
 </template>
 
 <script lang="ts" setup>
