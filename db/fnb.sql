@@ -3538,9 +3538,9 @@ COPY app.app_tenant_subscription (id, created_date, expiration_date, renewal_beh
 --
 
 COPY app.app_user (id, app_tenant_id, ext_auth_id, ext_crm_id, contact_id, created_at, username, recovery_email, inactive, password_reset_required, permission_key, is_support, preferred_timezone, settings, ext_auth_blocked, language_id) FROM stdin;
-2978135433931654758	2978135433587721825	\N	\N	2978135433906488933	2022-11-23 22:10:30.932856+00	appsuperadmin	app-super-admin@function-bucket.com	f	f	SuperAdmin	f	PST8PDT	{}	f	en
-2978135434283976298	2978135433587721825	\N	\N	2978135434283976297	2022-11-23 22:10:30.932856+00	fnb-support	help@function-bucket.com	f	f	Support	f	PST8PDT	{}	f	en
-2978135434309142126	2978135433587721825	\N	\N	2978135434309142125	2022-11-23 22:10:30.932856+00	fnb-demo	demo@function-bucket.com	f	f	Demo	f	PST8PDT	{}	f	en
+2978135433931654758	2978135433587721825	\N	\N	2978135433906488933	2022-11-23 22:10:30.932856+00	appsuperadmin	app-super-admin@example.com	f	f	SuperAdmin	f	PST8PDT	{}	f	en
+2978135434283976298	2978135433587721825	\N	\N	2978135434283976297	2022-11-23 22:10:30.932856+00	fnb-support	help@example.com	f	f	Support	f	PST8PDT	{}	f	en
+2978135434309142126	2978135433587721825	\N	\N	2978135434309142125	2022-11-23 22:10:30.932856+00	fnb-demo	demo@example.com	f	f	Demo	f	PST8PDT	{}	f	en
 2978135448360060534	2978135444492912241	\N	\N	2978135448343283317	2022-11-23 22:10:32.636648+00	dng-admin	dng-admin@example.com	f	f	User	f	PST8PDT	{}	f	en
 2978135452252374652	2978135444492912241	\N	\N	2978135452235597435	2022-11-23 22:10:33.105986+00	dng-user	dng-user@example.com	f	f	User	f	PST8PDT	{}	f	en
 2978135456153077381	2978135452478867072	\N	\N	2978135456136300164	2022-11-23 22:10:33.571273+00	address-book-admin	address-book-admin@example.com	f	f	User	f	PST8PDT	{}	f	en
@@ -3564,9 +3564,9 @@ dng	Drainage	\N
 --
 
 COPY app.contact (id, app_tenant_id, created_at, status, type, organization_id, location_id, external_id, first_name, last_name, email, cell_phone, office_phone, title, nickname) FROM stdin;
-2978135433906488933	2978135433587721825	2022-11-23 22:10:30.932856+00	active	individual	\N	\N	kevin	Kevin	Burkett	app-super-admin@function-bucket.com	\N	\N	\N	\N
-2978135434283976297	2978135433587721825	2022-11-23 22:10:30.932856+00	active	individual	\N	\N	fnb-support	FNB	Support	help@function-bucket.com	\N	\N	\N	\N
-2978135434309142125	2978135433587721825	2022-11-23 22:10:30.932856+00	active	individual	\N	\N	fnb-demo	FNB	Demo	demo@function-bucket.com	\N	\N	\N	\N
+2978135433906488933	2978135433587721825	2022-11-23 22:10:30.932856+00	active	individual	\N	\N	appsuperadmin	Appeaus	Adminus	app-super-admin@example.com	\N	\N	\N	\N
+2978135434283976297	2978135433587721825	2022-11-23 22:10:30.932856+00	active	individual	\N	\N	fnb-support	FNB	Support	help@example.com	\N	\N	\N	\N
+2978135434309142125	2978135433587721825	2022-11-23 22:10:30.932856+00	active	individual	\N	\N	fnb-demo	FNB	Demo	demo@example.com	\N	\N	\N	\N
 2978135448343283317	2978135444492912241	2022-11-23 22:10:32.636648+00	active	individual	\N	\N	\N	Drainage	Admin	dng-admin@example.com	\N	\N	\N	\N
 2978135452235597435	2978135444492912241	2022-11-23 22:10:33.105986+00	active	individual	\N	\N	\N	Drainage	User	dng-user@example.com	\N	\N	\N	\N
 2978135456136300164	2978135452478867072	2022-11-23 22:10:33.571273+00	active	individual	\N	\N	\N	Drainage	Admin	address-book-admin@example.com	\N	\N	\N	\N
